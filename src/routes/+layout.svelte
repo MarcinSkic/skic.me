@@ -1,23 +1,29 @@
 <script>
-    import Header from "./Header.svelte";
+    import TextSlider from "./TextSlider.svelte";
     import "./styles.css";
+
+    const descriptions = [
+        "Web Developer",
+        "Game Developer",
+        "Technology Enthusiast",
+    ];
 </script>
 
 <div class="app">
-    <Header />
+    <header>
+        <h1>
+            Hi, <br />
+            I am <span class="name">Marcin</span> <br />
+            <TextSlider texts={descriptions} duration={1000} />
+        </h1>
+    </header>
 
     <main>
         <slot />
     </main>
-
-    <footer>
-        <p>
-            visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit
-        </p>
-    </footer>
 </div>
 
-<style>
+<style lang="scss">
     .app {
         display: flex;
         flex-direction: column;
@@ -26,30 +32,33 @@
 
     main {
         box-sizing: border-box;
-        display: flex;
+        display: grid;
         flex: 1;
         flex-direction: column;
         width: 100%;
         max-width: 64rem;
-        padding: 1rem;
         margin: 0 auto;
     }
 
-    footer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 12px;
-    }
+    header {
+        display: grid;
+        grid-template:
+            "title photo" auto
+            "nav nav" auto / auto auto;
+        place-content: center;
+        height: 100vh;
+        background-color: #0f172a;
 
-    footer a {
-        font-weight: bold;
-    }
+        > h1 {
+            grid-area: title;
+            min-width: 500px;
+            font-size: 4rem;
+            color: white;
+            text-align: start;
 
-    @media (min-width: 480px) {
-        footer {
-            padding: 12px 0;
+            .name {
+                color: #eab308;
+            }
         }
     }
 </style>
