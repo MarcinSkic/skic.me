@@ -12,7 +12,11 @@
     <h1>
         Hi, <br />
         I am <span class="name">Marcin</span> <br />
-        <TextSlider texts={descriptions} duration={3000} />
+        <TextSlider
+            texts={descriptions}
+            duration={5000}
+            animationDirection="right"
+        />
     </h1>
 </header>
 

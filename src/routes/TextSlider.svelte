@@ -4,13 +4,14 @@
 
     export let texts: string[];
     export let duration: number;
-    let visibilityState: "visible" | "hidden";
+    export let animationDirection: "left" | "right";
 
     const displayedCounter = spring(0, {});
     const longestText =
         ([...texts].sort((a, b) => a.length - b.length).pop()?.length ?? 0) / 2;
 
     let counter = 0;
+    let visibilityState: "visible" | "hidden";
 
     $: displayedCounter.set(counter);
     $: currentIndex = Math.floor($displayedCounter) % texts.length;
@@ -18,7 +19,8 @@
 
     setInterval(() => {
         if (visibilityState === "hidden") return;
-        counter++;
+
+        counter += 1;
     }, duration);
 </script>
 
@@ -26,9 +28,17 @@
 <div class="text-slider" style:--longest-text={longestText}>
     <div
         class="text-slider-content"
-        style:--offset="{($displayedCounter % 1) * 100}%"
+        style:--offset="{($displayedCounter % 1) *
+            100 *
+            (animationDirection === "right" ? 1 : -1)}%"
     >
-        <span aria-hidden="true" class="hidden">{texts[hiddenIndex]}</span>
+        <span
+            aria-hidden="true"
+            class="hidden"
+            style={animationDirection === "right"
+                ? "left: -100%"
+                : "right: -100%"}>{texts[hiddenIndex]}</span
+        >
         <span>{texts[currentIndex]}</span>
     </div>
 </div>
@@ -46,6 +56,6 @@
 
     .hidden {
         position: absolute;
-        left: -100%;
+        width: 100%;
     }
 </style>
