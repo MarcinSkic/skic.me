@@ -52,16 +52,16 @@
         gap: 3rem 1rem;
         place-content: center;
         height: 100vh;
-        background-color: #0f172a;
+        background-color: var(--color-bg-dark);
 
         &__title {
             grid-area: title;
             font-size: var(--font-size);
-            color: white;
+            color: var(--color-text-dark);
             text-align: start;
 
             .name {
-                color: #eab308;
+                color: var(--color-theme-1);
             }
         }
 
@@ -79,7 +79,8 @@
             list-style: none;
 
             &__link {
-                background-image: linear-gradient(white 0 0);
+                color: var(--color-text-dark);
+                background-image: linear-gradient(var(--color-text-dark) 0 0);
                 background-repeat: no-repeat;
                 background-position: 200% 100%;
                 background-size: 200% 0.08em;

@@ -1,19 +1,30 @@
 <script>
+    import Header from "./Header.svelte";
 </script>
 
 <svelte:head>
-    <title>Home</title>
-    <meta name="description" content="Svelte demo app" />
+    <title>Marcin Skic</title>
+    <meta name="description" content="Marcin Skic's portfolio page" />
 </svelte:head>
 
-<section></section>
+<Header --font-size="4rem" />
+<main>
+    <section id="projects">
+        <h2>Projects</h2>
+    </section>
+    <section id="contact">
+        <h2>Contact</h2>
+    </section>
+</main>
 
 <style lang="scss">
-    section {
-        display: flex;
-        flex: 0.6;
+    main {
+        box-sizing: border-box;
+        display: grid;
+        flex: 1;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        width: 100%;
+        max-width: 64rem;
+        margin: 0 auto;
     }
 </style>
