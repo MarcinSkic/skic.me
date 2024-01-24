@@ -1,59 +1,30 @@
 <script>
-    import Counter from "./Counter.svelte";
-    import welcome from "$lib/images/svelte-welcome.webp";
-    import welcome_fallback from "$lib/images/svelte-welcome.png";
+    import Header from "./Header.svelte";
 </script>
 
 <svelte:head>
-    <title>Home</title>
-    <meta name="description" content="Svelte demo app" />
+    <title>Marcin Skic</title>
+    <meta name="description" content="Marcin Skic's portfolio page" />
 </svelte:head>
 
-<section>
-    <h1>
-        <span class="welcome">
-            <picture>
-                <source srcset={welcome} type="image/webp" />
-                <img src={welcome_fallback} alt="Welcome" />
-            </picture>
-        </span>
-
-        to your new<br />SvelteKit app
-    </h1>
-
-    <h2>
-        try editing <strong>src/routes/+page.svelte</strong>
-    </h2>
-
-    <Counter />
-</section>
+<Header --font-size="4rem" />
+<main>
+    <section id="projects">
+        <h2>Projects</h2>
+    </section>
+    <section id="contact">
+        <h2>Contact</h2>
+    </section>
+</main>
 
 <style lang="scss">
-    section {
-        display: flex;
-        flex: 0.6;
+    main {
+        box-sizing: border-box;
+        display: grid;
+        flex: 1;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    h1 {
         width: 100%;
-    }
-
-    .welcome {
-        position: relative;
-        display: block;
-        width: 100%;
-        height: 0;
-        padding: 0 0 calc(100% * 495 / 2048) 0;
-    }
-
-    .welcome img {
-        position: absolute;
-        top: 0;
-        display: block;
-        width: 100%;
-        height: 100%;
+        max-width: 64rem;
+        margin: 0 auto;
     }
 </style>
