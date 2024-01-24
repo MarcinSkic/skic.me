@@ -1,4 +1,5 @@
 <script>
+    import Slider from "./Slider.svelte";
     import TextSlider from "./TextSlider.svelte";
 
     const descriptions = [
@@ -23,6 +24,7 @@
     <h1 class="header__title">
         Hi, <br />
         I am <span class="name">Marcin</span> <br />
+
         <TextSlider
             texts={descriptions}
             duration={5000}
@@ -52,6 +54,7 @@
         gap: 3rem 1rem;
         place-content: center;
         height: 100vh;
+        color: var(--color-text-dark);
         background-color: var(--color-bg-dark);
 
         &__title {
