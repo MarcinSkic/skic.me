@@ -16,10 +16,16 @@
 
     export function decreaseCounter() {
         counter--;
-        if (counter < 0) {
-            counter = itemsCount - 1;
-        }
         interval.reset();
+    }
+
+    /**
+     * Works with normal and negative numbers, sequence stays the same
+     * @param value
+     * @param divider
+     */
+    function universalModulo(value: number, divider: number) {
+        return ((value % divider) + divider) % divider;
     }
 
     const indexCounter = spring(0, {});
@@ -29,13 +35,9 @@
     let lastSlide = Date.now();
 
     $: indexCounter.set(counter);
-    $: currentIndex = Math.floor($indexCounter) % itemsCount;
-    $: hiddenIndex = Math.floor($indexCounter + 1) % itemsCount;
-    $: offset = `${
-        ($indexCounter % 1) * 100 * (animationDirection === "right" ? 1 : -1)
-    }%`;
-    $: hiddenElementStyle =
-        animationDirection === "right" ? "left: -100%" : "right: -100%";
+    $: currentIndex = universalModulo(Math.floor($indexCounter), itemsCount);
+    $: hiddenIndex = universalModulo(Math.floor($indexCounter + 1), itemsCount);
+    $: offset = `${universalModulo($indexCounter, 1) * 100 * -1}%`;
 
     const interval = getControlledInterval(() => {
         const skipSliding =
@@ -45,14 +47,14 @@
         if (skipSliding) return;
 
         lastSlide = Date.now();
-        counter += 1;
+        counter += animationDirection === "left" ? 1 : -1;
     }, duration);
 </script>
 
 <svelte:document bind:visibilityState />
 <div class="slider">
     <div class="slider-content" style:--offset={offset}>
-        <span aria-hidden="true" class="hidden" style={hiddenElementStyle}>
+        <span aria-hidden="true" class="hidden">
             <slot name="hidden" {hiddenIndex}>{hiddenIndex}</slot>
         </span>
         <span><slot name="current" {currentIndex}>{currentIndex}</slot></span>
@@ -72,6 +74,7 @@
 
     .hidden {
         position: absolute;
+        right: -100%;
         width: 100%;
     }
 </style>
