@@ -17,7 +17,7 @@
         bind:this={slider}
         itemsCount={images.length}
         duration={5000}
-        animationDirection="left"
+        arrayIndexDirection="increment"
     >
         <img
             slot="hidden"

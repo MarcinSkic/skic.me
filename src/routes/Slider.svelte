@@ -7,7 +7,7 @@
      * Duration between slides in milliseconds
      */
     export let duration: number;
-    export let animationDirection: "left" | "right";
+    export let arrayIndexDirection: "increment" | "decrement";
 
     export function increaseCounter() {
         counter++;
@@ -47,7 +47,7 @@
         if (skipSliding) return;
 
         lastSlide = Date.now();
-        counter += animationDirection === "left" ? 1 : -1;
+        counter += arrayIndexDirection === "increment" ? 1 : -1;
     }, duration);
 </script>
 

@@ -4,8 +4,8 @@
 
     const descriptions = [
         "Web Developer",
-        "Game Developer",
         "Technology Enthusiast",
+        "Game Developer",
     ];
 
     const links = [
@@ -28,7 +28,7 @@
         <TextSlider
             texts={descriptions}
             duration={5000}
-            animationDirection="right"
+            arrayIndexDirection="decrement"
         />
     </h1>
     <div class="header__photo"><img src="/" alt="person" /></div>

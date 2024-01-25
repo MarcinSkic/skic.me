@@ -6,7 +6,7 @@
      * Duration between slides in milliseconds
      */
     export let duration: number;
-    export let animationDirection: "left" | "right";
+    export let arrayIndexDirection: "increment" | "decrement";
 
     const longestText =
         ([...texts].sort((a, b) => a.length - b.length).pop()?.length ?? 0) / 2;
@@ -15,7 +15,7 @@
 <Slider
     itemsCount={texts.length}
     {duration}
-    {animationDirection}
+    {arrayIndexDirection}
     --min-width="calc(var(--font-size) * {longestText})"
 >
     <span slot="hidden" let:hiddenIndex>{texts[hiddenIndex]}</span>
