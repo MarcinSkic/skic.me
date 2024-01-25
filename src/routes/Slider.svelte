@@ -53,11 +53,13 @@
 
 <svelte:document bind:visibilityState />
 <div class="slider">
-    <div class="slider-content" style:--offset={offset}>
-        <span aria-hidden="true" class="hidden">
+    <div class="slider__content" style:--offset={offset}>
+        <div aria-hidden="true" class="slider__content__hidden">
             <slot name="hidden" {hiddenIndex}>{hiddenIndex}</slot>
-        </span>
-        <span><slot name="current" {currentIndex}>{currentIndex}</slot></span>
+        </div>
+        <div class="slider__content__visible">
+            <slot name="current" {currentIndex}>{currentIndex}</slot>
+        </div>
     </div>
 </div>
 
@@ -65,16 +67,23 @@
     .slider {
         position: relative;
         min-width: var(--min-width);
+        height: 100%;
         overflow: hidden;
-    }
 
-    .slider-content {
-        transform: translate(var(--offset), 0);
-    }
+        &__content {
+            height: 100%;
+            transform: translate(var(--offset), 0);
 
-    .hidden {
-        position: absolute;
-        right: -100%;
-        width: 100%;
+            &__visible,
+            &__hidden {
+                height: 100%;
+            }
+
+            &__hidden {
+                position: absolute;
+                right: -100%;
+                width: 100%;
+            }
+        }
     }
 </style>

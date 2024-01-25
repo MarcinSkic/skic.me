@@ -1,5 +1,8 @@
 import logo from "$lib/images/svelte-logo.svg";
 import github from "$lib/images/github.svg";
+import img1 from "$lib/images/img1.png";
+import img2 from "$lib/images/img2.png";
+import img3 from "$lib/images/img3.png";
 
 export const projects = [
     {
@@ -7,20 +10,16 @@ export const projects = [
         description: "Website you are looking at",
         images: [
             {
-                alt: "Svelte logo",
-                src: logo,
+                alt: "Image 1",
+                src: img1,
             },
             {
-                alt: "Svelte logo",
-                src: logo,
+                alt: "Image 2",
+                src: img2,
             },
             {
-                alt: "Svelte logo",
-                src: logo,
-            },
-            {
-                alt: "Github logo",
-                src: github,
+                alt: "Image 3",
+                src: img3,
             },
         ],
         technologies: ["Svelte", "Typescript", "SCSS"],
@@ -37,6 +36,10 @@ export const projects = [
             {
                 alt: "Github logo",
                 src: github,
+            },
+            {
+                alt: "Svelte logo",
+                src: logo,
             },
         ],
         technologies: ["Next.js", "Typescript", "SCSS"],

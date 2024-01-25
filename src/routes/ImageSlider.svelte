@@ -4,8 +4,7 @@
     import MenuLeft from "svelte-material-icons/MenuLeft.svelte";
     import MenuRight from "svelte-material-icons/MenuRight.svelte";
 
-    let images: { alt: string; src: string }[] = projects[0].images;
-    let counter: number;
+    export let images: { alt: string; src: string }[] = projects[0].images;
     let slider: any;
 </script>
 
@@ -19,19 +18,16 @@
         duration={5000}
         arrayIndexDirection="increment"
     >
-        <img
-            slot="hidden"
-            let:hiddenIndex
-            src={images[hiddenIndex].src}
-            alt={images[hiddenIndex].alt}
-        />
+        <div class="image-slider__img-wrapper" slot="hidden" let:hiddenIndex>
+            <img src={images[hiddenIndex].src} alt={images[hiddenIndex].alt} />
+        </div>
 
-        <img
-            slot="current"
-            let:currentIndex
-            src={images[currentIndex]?.src}
-            alt={images[currentIndex]?.alt}
-        />
+        <div class="image-slider__img-wrapper" slot="current" let:currentIndex>
+            <img
+                src={images[currentIndex]?.src}
+                alt={images[currentIndex]?.alt}
+            />
+        </div>
     </Slider>
     <button class="image-slider__next" on:click={() => slider.increaseCounter()}
         ><MenuRight size="2.5rem" /></button
@@ -41,6 +37,7 @@
 <style lang="scss">
     .image-slider {
         position: relative;
+        height: 100%;
 
         &__prev,
         &__next {
@@ -60,6 +57,21 @@
 
         &__next {
             right: 0;
+        }
+
+        &__img-wrapper {
+            position: relative;
+            display: grid;
+            place-items: center;
+            height: 100%;
+
+            & > img {
+                position: absolute;
+                inset: 0px;
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
         }
     }
 </style>

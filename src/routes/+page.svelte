@@ -1,6 +1,8 @@
 <script>
+    import { projects } from "$lib/projects";
     import Header from "./Header.svelte";
     import ImageSlider from "./ImageSlider.svelte";
+    import Project from "./Project.svelte";
 </script>
 
 <svelte:head>
@@ -10,12 +12,21 @@
 
 <Header --font-size="4rem" />
 <main>
-    <section id="projects">
+    <section id="projects" class="projects">
         <h2>Projects</h2>
-        <ImageSlider />
+        <div class="projects__grid">
+            {#each projects as project}
+                <Project />
+            {/each}
+        </div>
     </section>
     <section id="contact">
         <h2>Contact</h2>
+        <h2>Contact</h2>
+        <h2>Contact</h2>
+        <h2>Contact</h2>
+        <h2>Contact</h2>
+        dada
     </section>
 </main>
 
@@ -28,5 +39,13 @@
         width: 100%;
         max-width: 64rem;
         margin: 0 auto;
+    }
+
+    .projects {
+        &__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-auto-rows: 200px;
+        }
     }
 </style>
