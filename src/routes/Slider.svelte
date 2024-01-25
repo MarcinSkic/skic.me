@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { getControlledInterval } from "$lib/time";
     import { spring } from "svelte/motion";
 
     export let itemsCount: number;
@@ -7,6 +8,19 @@
      */
     export let duration: number;
     export let animationDirection: "left" | "right";
+
+    export function increaseCounter() {
+        counter++;
+        interval.reset();
+    }
+
+    export function decreaseCounter() {
+        counter--;
+        if (counter < 0) {
+            counter = itemsCount - 1;
+        }
+        interval.reset();
+    }
 
     const indexCounter = spring(0, {});
 
@@ -23,7 +37,7 @@
     $: hiddenElementStyle =
         animationDirection === "right" ? "left: -100%" : "right: -100%";
 
-    setInterval(() => {
+    const interval = getControlledInterval(() => {
         const skipSliding =
             visibilityState === "hidden" ||
             Date.now() - lastSlide < duration * 0.9;

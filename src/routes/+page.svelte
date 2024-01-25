@@ -1,5 +1,6 @@
 <script>
     import Header from "./Header.svelte";
+    import ImageSlider from "./ImageSlider.svelte";
 </script>
 
 <svelte:head>
@@ -11,6 +12,7 @@
 <main>
     <section id="projects">
         <h2>Projects</h2>
+        <ImageSlider />
     </section>
     <section id="contact">
         <h2>Contact</h2>
