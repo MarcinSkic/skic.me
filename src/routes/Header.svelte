@@ -24,21 +24,22 @@
     <h1 class="header__title">
         Hi, <br />
         I am <span class="name">Marcin</span> <br />
-
-        <TextSlider
-            texts={descriptions}
-            duration={5000}
-            arrayIndexDirection="decrement"
-        />
+        <div>
+            <TextSlider
+                texts={descriptions}
+                duration={5000}
+                arrayIndexDirection="decrement"
+            />
+        </div>
     </h1>
     <div class="header__photo"><img src="/" alt="person" /></div>
     <nav>
         <ul class="header__links">
             {#each links as link}
                 <li>
-                    <a class="header__links__link" href={link.href}
-                        >{link.title}</a
-                    >
+                    <a class="header__links__link" href={link.href}>
+                        {link.title}
+                    </a>
                 </li>
             {/each}
         </ul>

@@ -9,9 +9,12 @@
 </script>
 
 <div class="image-slider">
-    <button class="image-slider__prev" on:click={() => slider.decreaseCounter()}
-        ><MenuLeft size="2.5rem" /></button
+    <button
+        class="image-slider__prev"
+        on:click={() => slider.decreaseCounter()}
     >
+        <MenuLeft size="2.5rem" />
+    </button>
     <Slider
         bind:this={slider}
         itemsCount={images.length}
@@ -29,14 +32,18 @@
             />
         </div>
     </Slider>
-    <button class="image-slider__next" on:click={() => slider.increaseCounter()}
-        ><MenuRight size="2.5rem" /></button
+    <button
+        class="image-slider__next"
+        on:click={() => slider.increaseCounter()}
     >
+        <MenuRight size="2.5rem" />
+    </button>
 </div>
 
 <style lang="scss">
     .image-slider {
         position: relative;
+        grid-area: var(--grid-area);
         height: 100%;
 
         &__prev,
@@ -70,7 +77,8 @@
                 inset: 0px;
                 width: 100%;
                 height: 100%;
-                object-fit: contain;
+                object-position: top;
+                object-fit: var(--object-fit, contain);
             }
         }
     }

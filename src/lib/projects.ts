@@ -4,7 +4,19 @@ import img1 from "$lib/images/img1.png";
 import img2 from "$lib/images/img2.png";
 import img3 from "$lib/images/img3.png";
 
-export const projects = [
+export interface Project {
+    name: string;
+    description: string;
+    images: {
+        alt: string;
+        src: string;
+    }[];
+    technologies: string[];
+    url?: string;
+    github?: string;
+}
+
+export const projects: Project[] = [
     {
         name: "Portfolio page",
         description: "Website you are looking at",
@@ -23,6 +35,8 @@ export const projects = [
             },
         ],
         technologies: ["Svelte", "Typescript", "SCSS"],
+        url: "htpps://skic.me",
+        github: "https://github.com/MarcinSkic/portfolio-website",
     },
     {
         name: "Name that tune",
@@ -43,5 +57,7 @@ export const projects = [
             },
         ],
         technologies: ["Next.js", "Typescript", "SCSS"],
+        url: "https://name-that-tune.vercel.app",
+        github: "https://github.com/MarcinSkic/name-that-tune",
     },
 ];
