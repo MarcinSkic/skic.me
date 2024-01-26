@@ -34,7 +34,7 @@ export const projects: Project[] = [
                 src: img3,
             },
         ],
-        technologies: ["Svelte", "Typescript", "SCSS"],
+        technologies: ["svelte", "typescript", "scss"],
         url: "htpps://skic.me",
         github: "https://github.com/MarcinSkic/portfolio-website",
     },
@@ -56,8 +56,18 @@ export const projects: Project[] = [
                 src: logo,
             },
         ],
-        technologies: ["Next.js", "Typescript", "SCSS"],
+        technologies: ["next", "typescript", "scss"],
         url: "https://name-that-tune.vercel.app",
         github: "https://github.com/MarcinSkic/name-that-tune",
     },
 ];
+
+export const technologies: {
+    [key: string]: string;
+} = {
+    svelte: "https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00",
+    typescript:
+        "https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white",
+    next: "https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white",
+    scss: "https://img.shields.io/badge/Scss-CC6699?style=for-the-badge&logo=sass&logoColor=white",
+};

@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { Project } from "$lib/projects";
+    import { technologies, type Project } from "$lib/projects";
     import ImageSlider from "./ImageSlider.svelte";
     import OpenInNew from "svelte-material-icons/OpenInNew.svelte";
     import github from "$lib/images/github.svg?raw";
@@ -27,6 +27,15 @@
         {/if}
     </div>
     <ImageSlider --grid-area="slider" />
+    <div class="project__tech">
+        {#each project.technologies as technology}
+            <img
+                class="project__tech__img"
+                alt={technology}
+                src={technologies[technology]}
+            />
+        {/each}
+    </div>
 </div>
 
 <style lang="scss">
@@ -34,7 +43,11 @@
         display: grid;
         grid-template:
             "title icons" min-content
-            "slider slider" auto / 1fr 1fr;
+            "slider slider" auto
+            "tech tech" minmax(50px, min-content) / 1fr 1fr;
+        padding: 0 20px;
+        color: white;
+        background-color: var(--color-theme-2);
 
         &__icons {
             display: flex;
@@ -42,8 +55,23 @@
             align-items: center;
             justify-self: end;
 
+            a {
+                color: white;
+            }
+
             &__github-icon {
                 width: 2rem;
+            }
+        }
+
+        &__tech {
+            display: flex;
+            flex-wrap: wrap;
+            grid-area: tech;
+            gap: 10px;
+
+            &__img {
+                height: 30px;
             }
         }
     }
