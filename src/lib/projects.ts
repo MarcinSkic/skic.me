@@ -44,7 +44,7 @@ export const projects: Project[] = [
         id: "laser_inc_idle_miner",
         name: "Laser Inc. Idle Miner",
         description:
-            "Idle game where you mine with lasers to earn as much as you can, physics based!",
+            "Idle game where you mine with lasers to earn as much money as you can, also physics based!",
         images: [
             {
                 alt: "Image 1",

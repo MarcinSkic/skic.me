@@ -8,7 +8,7 @@
 </script>
 
 <div class="project">
-    <h3>{project.name}</h3>
+    <h3 class="project__title">{project.name}</h3>
     <div class="project__icons">
         {#if project.github}
             <a
@@ -26,7 +26,12 @@
             </a>
         {/if}
     </div>
-    <ImageSlider --grid-area="slider" />
+    <div class="project__images">
+        <ImageSlider --object-fit="cover" />
+    </div>
+    <div class="project__description">
+        {project.description}
+    </div>
     <div class="project__tech">
         {#each project.technologies as technology}
             <img
@@ -42,12 +47,19 @@
     .project {
         display: grid;
         grid-template:
-            "title icons" min-content
+            "title icons" 35px
             "slider slider" auto
-            "tech tech" minmax(50px, min-content) / 1fr 1fr;
-        padding: 0 20px;
+            "description description" 52px
+            "tech tech" min-content / 1fr 1fr;
+        gap: 10px;
+        padding: 10px 20px 20px;
         color: white;
         background-color: var(--color-theme-2);
+
+        &__title {
+            align-self: center;
+            margin: 0;
+        }
 
         &__icons {
             display: flex;
@@ -62,6 +74,22 @@
             &__github-icon {
                 width: 2rem;
             }
+        }
+
+        &__images {
+            grid-area: slider;
+            height: 150px;
+            transition: height 0.5s;
+
+            &:hover {
+                height: 300px; /*FIXME: get height of the picture so it fits but not overflows other way*/
+            }
+        }
+
+        &__description {
+            grid-area: description;
+            margin-top: 10px;
+            font-size: 1.05rem;
         }
 
         &__tech {

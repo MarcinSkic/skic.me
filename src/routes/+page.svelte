@@ -47,8 +47,9 @@
         &__grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            grid-auto-rows: 400px;
+            grid-auto-rows: fit-content;
             gap: 40px;
+            align-items: start;
         }
     }
 </style>
