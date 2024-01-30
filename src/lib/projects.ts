@@ -5,6 +5,7 @@ import img2 from "$lib/images/img2.png";
 import img3 from "$lib/images/img3.png";
 
 export interface Project {
+    id: string;
     name: string;
     description: string;
     images: {
@@ -18,6 +19,7 @@ export interface Project {
 
 export const projects: Project[] = [
     {
+        id: "portfolio",
         name: "Portfolio page",
         description: "Website you are looking at",
         images: [
@@ -39,9 +41,32 @@ export const projects: Project[] = [
         github: "https://github.com/MarcinSkic/portfolio-website",
     },
     {
+        id: "laser_inc_idle_miner",
+        name: "Laser Inc. Idle Miner",
+        description:
+            "Idle game where you mine with lasers to earn as much as you can, physics based!",
+        images: [
+            {
+                alt: "Image 1",
+                src: img1,
+            },
+            {
+                alt: "Image 2",
+                src: img2,
+            },
+            {
+                alt: "Image 3",
+                src: img3,
+            },
+        ],
+        technologies: ["unity", "csharp"],
+        url: "https://play.google.com/store/apps/details?id=laser.inc.idle.miner&hl=en_US",
+    },
+    {
+        id: "name_that_tune",
         name: "Name that tune",
         description:
-            "Guess track title of your playlists and albums from Spotify",
+            "App where you can guess tracks from your playlists and albums on Spotify",
         images: [
             {
                 alt: "Svelte logo",
@@ -70,4 +95,6 @@ export const technologies: {
         "https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white",
     next: "https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white",
     scss: "https://img.shields.io/badge/Scss-CC6699?style=for-the-badge&logo=sass&logoColor=white",
+    unity: "https://img.shields.io/badge/Unity-100000?style=for-the-badge&logo=unity&logoColor=white",
+    csharp: "https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white",
 };
