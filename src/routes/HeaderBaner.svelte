@@ -1,6 +1,6 @@
 <script>
-    import Slider from "./Slider.svelte";
     import TextSlider from "./TextSlider.svelte";
+    import profile from "$lib/images/profile.jpeg";
 
     const descriptions = [
         "Web Developer",
@@ -10,7 +10,7 @@
 </script>
 
 <div class="header-baner">
-    <div class="header-baner__photo"><img src="/" alt="person" /></div>
+    <img class="header-baner__photo" width="300" src={profile} alt="person" />
     <h1 class="header-baner__title">
         Hi, <br />
         I am <span class="header-baner__title__name">Marcin</span> <br />
@@ -28,13 +28,17 @@
     .header-baner {
         display: flex;
         grid-area: baner;
-        gap: 20px;
+        gap: 2rem;
         align-items: center;
         justify-self: center;
 
+        &__photo {
+            grid-area: photo;
+            border-radius: 50%;
+        }
+
         &__title {
             grid-area: title;
-            place-self: end;
             margin: 0;
             font-size: var(--font-size);
             color: var(--color-text-dark);
@@ -43,10 +47,6 @@
             &__name {
                 color: var(--color-theme-1);
             }
-        }
-
-        &__photo {
-            grid-area: photo;
         }
     }
 </style>

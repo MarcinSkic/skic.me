@@ -1,13 +1,5 @@
 <script>
     import HeaderBaner from "./HeaderBaner.svelte";
-    import Slider from "./Slider.svelte";
-    import TextSlider from "./TextSlider.svelte";
-
-    const descriptions = [
-        "Web Developer",
-        "Technology Enthusiast",
-        "Game Developer",
-    ];
 
     const links = [
         {
@@ -39,13 +31,14 @@
 <style lang="scss">
     .header {
         --nav-height: 6rem;
+        --nav-distance-from-bottom: 40vh;
         position: sticky;
         top: calc(-100vh + var(--nav-height));
         z-index: 2;
         display: grid;
         grid-template:
             "baner baner" auto
-            "nav nav" 40vh / 1fr 1fr;
+            "nav nav" var(--nav-distance-from-bottom) / 1fr 1fr;
         gap: 3rem 1rem;
         align-content: end;
         justify-content: center;
@@ -54,18 +47,21 @@
         background-color: var(--color-bg-dark);
 
         &__links-wrapper {
-            position: sticky;
-            bottom: calc(40vh - var(--nav-height));
-            align-self: end;
+            display: contents;
         }
 
         &__links {
+            position: sticky;
+            bottom: calc(var(--nav-distance-from-bottom) - var(--nav-height));
             display: flex;
+            grid-area: nav;
             gap: var(--font-size);
             align-items: center;
+            align-self: end;
+            justify-self: center;
             height: var(--nav-height);
             padding: 0 2vw;
-            margin: 0;
+            margin-right: 10rem;
             font-size: calc(var(--font-size) / 1.6);
             list-style: none;
 

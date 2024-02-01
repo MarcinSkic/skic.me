@@ -1,7 +1,6 @@
 <script>
     import { projects } from "$lib/projects";
     import Header from "./Header.svelte";
-    import ImageSlider from "./ImageSlider.svelte";
     import Project from "./Project.svelte";
 </script>
 
