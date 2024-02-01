@@ -9,7 +9,6 @@
     <title>Marcin Skic</title>
     <meta name="description" content="Marcin Skic's portfolio page" />
 </svelte:head>
-
 <Header --font-size="4rem" />
 <main>
     <section id="projects" class="projects">

@@ -1,4 +1,5 @@
 <script>
+    import HeaderBaner from "./HeaderBaner.svelte";
     import Slider from "./Slider.svelte";
     import TextSlider from "./TextSlider.svelte";
 
@@ -21,19 +22,8 @@
 </script>
 
 <header class="header">
-    <h1 class="header__title">
-        Hi, <br />
-        I am <span class="name">Marcin</span> <br />
-        <div>
-            <TextSlider
-                texts={descriptions}
-                duration={5000}
-                arrayIndexDirection="decrement"
-            />
-        </div>
-    </h1>
-    <div class="header__photo"><img src="/" alt="person" /></div>
-    <nav>
+    <HeaderBaner />
+    <nav class="header__links-wrapper">
         <ul class="header__links">
             {#each links as link}
                 <li>
@@ -48,36 +38,33 @@
 
 <style lang="scss">
     .header {
+        --nav-height: 6rem;
+        position: sticky;
+        top: calc(-100vh + var(--nav-height));
+        z-index: 2;
         display: grid;
         grid-template:
-            "title photo" auto
-            "nav nav" auto / auto auto;
+            "baner baner" auto
+            "nav nav" 40vh / 1fr 1fr;
         gap: 3rem 1rem;
-        place-content: center;
+        align-content: end;
+        justify-content: center;
         height: 100vh;
         color: var(--color-text-dark);
         background-color: var(--color-bg-dark);
 
-        &__title {
-            grid-area: title;
-            font-size: var(--font-size);
-            color: var(--color-text-dark);
-            text-align: start;
-
-            .name {
-                color: var(--color-theme-1);
-            }
-        }
-
-        &__photo {
-            grid-area: photo;
+        &__links-wrapper {
+            position: sticky;
+            bottom: calc(40vh - var(--nav-height));
+            align-self: end;
         }
 
         &__links {
             display: flex;
             gap: var(--font-size);
             align-items: center;
-            padding: 0;
+            height: var(--nav-height);
+            padding: 0 2vw;
             margin: 0;
             font-size: calc(var(--font-size) / 1.6);
             list-style: none;
