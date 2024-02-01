@@ -44,7 +44,15 @@
         justify-content: center;
         height: 100vh;
         color: var(--color-text-dark);
-        background-color: var(--color-bg-dark);
+        background: linear-gradient(
+            220deg,
+            var(--color-bg-dark-l1),
+            5%,
+            var(--color-bg-dark),
+            90%,
+            var(--color-bg-dark-d1)
+        );
+        background-attachment: fixed;
 
         &__links-wrapper {
             display: contents;

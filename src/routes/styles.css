@@ -11,7 +11,9 @@ html {
     --color-bg-0: #94a3b8;
     --color-bg-1: hsl(215, 16%, 60%);
     --color-bg-2: hsl(215, 16%, 70%);
+    --color-bg-dark-l1: #1e293b;
     --color-bg-dark: #0f172a;
+    --color-bg-dark-d1: #020617;
     --color-theme-1: #eab308;
     --color-theme-2: #1e293b;
     --color-text-dark: white;
