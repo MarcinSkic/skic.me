@@ -3,8 +3,15 @@
     import ImageSlider from "./ImageSlider.svelte";
     import OpenInNew from "svelte-material-icons/OpenInNew.svelte";
     import github from "$lib/images/github.svg?raw";
+    import { onMount } from "svelte";
 
     export let project: Project;
+    let imageSlider: any;
+    let imageSliderHeight = 300;
+
+    onMount(() => {
+        imageSliderHeight = imageSlider.offsetWidth / project.imagesAspectRatio;
+    });
 </script>
 
 <div class="project">
@@ -26,8 +33,12 @@
             </a>
         {/if}
     </div>
-    <div class="project__images">
-        <ImageSlider --object-fit="cover" />
+    <div
+        class="project__images"
+        style:--height="{imageSliderHeight}px"
+        bind:this={imageSlider}
+    >
+        <ImageSlider --object-fit="cover" images={project.images} />
     </div>
     <div class="project__description">
         {project.description}
@@ -48,9 +59,9 @@
         display: grid;
         grid-template:
             "title icons" 35px
-            "slider slider" auto
+            "slider slider" min-content
             "description description" 52px
-            "tech tech" min-content / 1fr 1fr;
+            "tech tech" 60px / 1fr 1fr;
         gap: 10px;
         padding: 10px 20px 20px;
         color: white;
@@ -82,7 +93,7 @@
             transition: height 0.5s;
 
             &:hover {
-                height: 300px; /*FIXME: get height of the picture so it fits but not overflows other way*/
+                height: var(--height);
             }
         }
 
@@ -97,6 +108,9 @@
             flex-wrap: wrap;
             grid-area: tech;
             gap: 10px;
+            align-items: end;
+            align-self: end;
+            height: fit-content;
 
             &__img {
                 height: 30px;
