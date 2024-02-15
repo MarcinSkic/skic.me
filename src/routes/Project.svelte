@@ -1,7 +1,6 @@
 <script lang="ts">
     import { technologies, type Project } from "$lib/projects";
     import ImageSlider from "./ImageSlider.svelte";
-    import OpenInNew from "svelte-material-icons/OpenInNew.svelte";
     import github from "$lib/images/github.svg?raw";
     import { onMount } from "svelte";
 
@@ -29,7 +28,10 @@
         {/if}
         {#if project.url}
             <a href={project.url} target="_blank" rel="author noopener">
-                <OpenInNew size="1.8rem" />
+                <iconify-icon
+                    icon="mdi:open-in-new"
+                    style="font-size: 1.8rem;"
+                />
             </a>
         {/if}
     </div>

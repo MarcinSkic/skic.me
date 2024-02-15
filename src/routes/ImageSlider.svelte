@@ -1,8 +1,6 @@
 <script lang="ts">
     import { projects } from "$lib/projects";
     import Slider from "./Slider.svelte";
-    import MenuLeft from "svelte-material-icons/MenuLeft.svelte";
-    import MenuRight from "svelte-material-icons/MenuRight.svelte";
 
     export let images: { alt: string; src: string }[] = projects[0].images;
     let slider: any;
@@ -13,7 +11,7 @@
         class="image-slider__prev"
         on:click={() => slider.decreaseCounter()}
     >
-        <MenuLeft size="2.5rem" />
+        <iconify-icon icon="mdi:menu-left" style="font-size: 2.5rem;" />
     </button>
     <Slider
         bind:this={slider}
@@ -36,7 +34,7 @@
         class="image-slider__next"
         on:click={() => slider.increaseCounter()}
     >
-        <MenuRight size="2.5rem" />
+        <iconify-icon icon="mdi:menu-right" style="font-size: 2.5rem;" />
     </button>
 </div>
 
