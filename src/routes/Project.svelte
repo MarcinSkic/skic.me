@@ -2,7 +2,7 @@
     import { technologies, type Project } from "$lib/projects";
     import ImageSlider from "./ImageSlider.svelte";
     import github from "$lib/images/github.svg?raw";
-    import { onMount } from "svelte";
+    import { afterUpdate, onMount } from "svelte";
 
     export let project: Project;
     let imageSlider: any;
@@ -10,6 +10,13 @@
 
     onMount(() => {
         imageSliderHeight = imageSlider.offsetWidth / project.imagesAspectRatio;
+    });
+
+    afterUpdate(() => {
+        if (imageSlider) {
+            imageSliderHeight =
+                imageSlider.offsetWidth / project.imagesAspectRatio;
+        }
     });
 </script>
 
@@ -61,9 +68,9 @@
         display: grid;
         grid-template:
             "title icons" 35px
-            "slider slider" min-content
-            "description description" 52px
-            "tech tech" 60px / 1fr 1fr;
+            "slider slider" 1fr
+            "description description" auto
+            "tech tech" auto / 1fr 1fr;
         gap: 10px;
         padding: 10px 20px 20px;
         color: white;
@@ -91,12 +98,9 @@
 
         &__images {
             grid-area: slider;
-            height: 150px;
-            transition: height 0.5s;
 
-            &:hover {
-                height: var(--height);
-            }
+            height: var(--height);
+            transition: height 0.5s;
         }
 
         &__description {
