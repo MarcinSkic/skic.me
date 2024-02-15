@@ -1,15 +1,12 @@
 export function arrayIntoMatrixOrderedByColumn(list: unknown[], cols: number) {
-    const matrix: unknown[][] = [];
+    return list.reduce<unknown[][]>((matrix, item, index) => {
+        let col = index % cols;
 
-    for (let i = 0; i < list.length; i++) {
-        let col = i % cols;
-
-        if (i < cols) {
+        if (index < cols) {
             matrix[col] = [];
         }
+        matrix[col].push(item);
 
-        matrix[col].push(list[i]);
-    }
-
-    return matrix;
+        return matrix;
+    }, []);
 }
