@@ -2,9 +2,11 @@
     import { arrayIntoMatrixOrderedByColumn } from "./math";
 
     export let list: any[];
+    export let minCols = 1;
+    export let maxCols = 3;
+    export let minColumnWidth = 500;
+    export let gap = 40;
 
-    const minColumnWidth = 500;
-    const gap = 40;
     let gridWidth = 0;
     let columnCount = 0;
     let matrix: any[][] = [];
@@ -15,10 +17,13 @@
         let leftSpace = gridWidth - columnWithGapCount * minColumnWithGapWidth;
 
         columnCount = Math.max(
-            1,
-            leftSpace >= minColumnWidth
-                ? columnWithGapCount + 1
-                : columnWithGapCount
+            minCols,
+            Math.min(
+                leftSpace >= minColumnWidth
+                    ? columnWithGapCount + 1
+                    : columnWithGapCount,
+                maxCols
+            )
         );
 
         matrix = arrayIntoMatrixOrderedByColumn(list, columnCount);
