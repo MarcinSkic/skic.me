@@ -1,5 +1,6 @@
 <script>
     import "./styles.css";
+    import "iconify-icon";
 </script>
 
 <div class="app"><slot /></div>

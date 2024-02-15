@@ -1,7 +1,8 @@
-<script>
+<script lang="ts">
     import { projects } from "$lib/projects";
     import Header from "./Header.svelte";
     import Project from "./Project.svelte";
+    import FlowingGrid from "./flowingGrid/FlowingGrid.svelte";
 </script>
 
 <svelte:head>
@@ -12,11 +13,9 @@
 <main>
     <section id="projects" class="projects">
         <h2 class="projects__header">Projects</h2>
-        <div class="projects__grid">
-            {#each projects as project}
-                <Project {project} />
-            {/each}
-        </div>
+        <FlowingGrid list={projects} let:item>
+            <Project project={item} />
+        </FlowingGrid>
     </section>
     <section id="contact">
         <h2>Contact</h2>
@@ -31,7 +30,6 @@
         flex-direction: column;
 
         width: 100%;
-        max-width: 64rem;
         margin: 0 auto;
     }
 
@@ -40,14 +38,6 @@
         &__header {
             font-size: 2rem;
             font-weight: 700;
-        }
-
-        &__grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            grid-auto-rows: fit-content;
-            gap: 40px;
-            align-items: start;
         }
     }
 </style>
