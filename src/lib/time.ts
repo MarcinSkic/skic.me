@@ -1,3 +1,9 @@
+export interface ControlledInterval {
+    start: () => void;
+    stop: () => void;
+    reset: () => void;
+}
+
 export function getControlledInterval(callback: () => void, duration: number) {
     let interval: number | undefined;
 
