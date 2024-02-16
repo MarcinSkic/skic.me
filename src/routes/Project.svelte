@@ -4,7 +4,9 @@
     import github from "$lib/images/github.svg?raw";
     import { afterUpdate, onMount } from "svelte";
 
+    export let delay: number;
     export let project: Project;
+    const duration = Math.random() * 2000 + 4000;
     let imageSlider: any;
     let imageSliderHeight = 300;
 
@@ -47,7 +49,12 @@
         style:--height="{imageSliderHeight}px"
         bind:this={imageSlider}
     >
-        <ImageSlider --object-fit="cover" images={project.images} />
+        <ImageSlider
+            --object-fit="cover"
+            images={project.images}
+            {duration}
+            {delay}
+        />
     </div>
     <div class="project__description">
         {project.description}

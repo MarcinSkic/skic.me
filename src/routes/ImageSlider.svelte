@@ -1,8 +1,9 @@
 <script lang="ts">
-    import { projects } from "$lib/projects";
     import Slider from "./Slider.svelte";
 
-    export let images: { alt: string; src: string }[] = projects[0].images;
+    export let duration: number = 5000;
+    export let delay: number = 0;
+    export let images: { alt: string; src: string }[];
     let slider: any;
 </script>
 
@@ -16,7 +17,8 @@
     <Slider
         bind:this={slider}
         itemsCount={images.length}
-        duration={5000}
+        {duration}
+        {delay}
         arrayIndexDirection="increment"
     >
         <div class="image-slider__img-wrapper" slot="hidden" let:hiddenIndex>

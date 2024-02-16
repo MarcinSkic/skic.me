@@ -14,8 +14,8 @@
 <main>
     <section id="projects" class="projects">
         <h2 class="projects__header">Projects</h2>
-        <FlowingGrid list={projects} let:item>
-            <Project project={item} />
+        <FlowingGrid list={projects} let:item let:index>
+            <Project project={item} delay={Math.random() * 3000 - 1500} />
         </FlowingGrid>
     </section>
     <section id="contact">

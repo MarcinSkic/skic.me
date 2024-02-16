@@ -1,11 +1,12 @@
 <script lang="ts">
-    import { getControlledInterval } from "$lib/time";
+    import { getControlledInterval, type ControlledInterval } from "$lib/time";
     import { spring } from "svelte/motion";
 
     export let itemsCount: number;
     /**
      * Duration between slides in milliseconds
      */
+    export let delay: number = 0;
     export let duration: number;
     export let arrayIndexDirection: "increment" | "decrement";
 
@@ -33,22 +34,25 @@
     let counter = 0;
     let visibilityState: "visible" | "hidden";
     let lastSlide = Date.now();
+    let interval: ControlledInterval;
 
     $: indexCounter.set(counter);
     $: currentIndex = universalModulo(Math.floor($indexCounter), itemsCount);
     $: hiddenIndex = universalModulo(Math.floor($indexCounter + 1), itemsCount);
     $: offset = `${universalModulo($indexCounter, 1) * 100 * -1}%`;
 
-    const interval = getControlledInterval(() => {
-        const skipSliding =
-            visibilityState === "hidden" ||
-            Date.now() - lastSlide < duration * 0.9;
+    setTimeout(() => {
+        interval = getControlledInterval(() => {
+            const skipSliding =
+                visibilityState === "hidden" ||
+                Date.now() - lastSlide < duration * 0.9;
 
-        if (skipSliding) return;
+            if (skipSliding) return;
 
-        lastSlide = Date.now();
-        counter += arrayIndexDirection === "increment" ? 1 : -1;
-    }, duration);
+            lastSlide = Date.now();
+            counter += arrayIndexDirection === "increment" ? 1 : -1;
+        }, duration);
+    }, delay);
 </script>
 
 <svelte:document bind:visibilityState />
