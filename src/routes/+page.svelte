@@ -1,5 +1,6 @@
 <script lang="ts">
     import { projects } from "$lib/projects";
+    import Footer from "./Footer.svelte";
     import Header from "./Header.svelte";
     import Project from "./Project.svelte";
     import FlowingGrid from "./flowingGrid/FlowingGrid.svelte";
@@ -21,6 +22,7 @@
         <h2>Contact</h2>
     </section>
 </main>
+<Footer />
 
 <style lang="scss">
     main {
