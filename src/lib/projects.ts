@@ -30,32 +30,6 @@ export interface Project {
 export const projects: MatrixElement<Project>[] = [
     {
         item: {
-            id: "portfolio",
-            name: "Portfolio page",
-            description: "Website you are looking at",
-            imagesAspectRatio: 1,
-            images: [
-                {
-                    alt: "Image 1",
-                    src: img1,
-                },
-                {
-                    alt: "Image 2",
-                    src: img2,
-                },
-                {
-                    alt: "Image 3",
-                    src: img3,
-                },
-            ],
-            technologies: ["svelte", "typescript", "scss"],
-            url: "htpps://skic.me",
-            github: "https://github.com/MarcinSkic/portfolio-website",
-        },
-        rows: 1,
-    },
-    {
-        item: {
             id: "laser_inc_idle_miner",
             name: "Laser Inc. Idle Miner",
             description:
@@ -79,6 +53,32 @@ export const projects: MatrixElement<Project>[] = [
             url: "https://play.google.com/store/apps/details?id=laser.inc.idle.miner&hl=en_US",
         },
         rows: 2,
+    },
+    {
+        item: {
+            id: "digishelf",
+            name: "Digishelf",
+            description: "Website for collecting data about popculture",
+            imagesAspectRatio: 0.98,
+            images: [
+                {
+                    alt: "Library page",
+                    src: digishelf_1,
+                },
+                {
+                    alt: "Work creation form",
+                    src: digishelf_2,
+                },
+                {
+                    alt: "Reports page",
+                    src: digishelf_3,
+                },
+            ],
+            technologies: ["next", "express", "mongodb", "typescript", "scss"],
+            url: "https://engineer-project-web.vercel.app",
+            github: "https://github.com/pollubMsMsEs/engineer-project-web",
+        },
+        rows: 1,
     },
     {
         item: {
@@ -109,79 +109,27 @@ export const projects: MatrixElement<Project>[] = [
     },
     {
         item: {
-            id: "digishelf",
-            name: "Digishelf",
-            description: "Website for collecting data about popculture",
-            imagesAspectRatio: 0.98,
+            id: "portfolio",
+            name: "Portfolio page",
+            description: "Website you are looking at",
+            imagesAspectRatio: 1,
             images: [
                 {
-                    alt: "Library page",
-                    src: digishelf_1,
+                    alt: "Image 1",
+                    src: img1,
                 },
                 {
-                    alt: "Work creation form",
-                    src: digishelf_2,
+                    alt: "Image 2",
+                    src: img2,
                 },
                 {
-                    alt: "Reports page",
-                    src: digishelf_3,
+                    alt: "Image 3",
+                    src: img3,
                 },
             ],
-            technologies: ["next", "express", "mongodb", "typescript", "scss"],
-            url: "https://engineer-project-web.vercel.app",
-            github: "https://github.com/pollubMsMsEs/engineer-project-web",
-        },
-        rows: 1,
-    },
-    {
-        item: {
-            id: "digishelf",
-            name: "Digishelf",
-            description: "Website for collecting data about popculture",
-            imagesAspectRatio: 0.98,
-            images: [
-                {
-                    alt: "Library page",
-                    src: digishelf_1,
-                },
-                {
-                    alt: "Work creation form",
-                    src: digishelf_2,
-                },
-                {
-                    alt: "Reports page",
-                    src: digishelf_3,
-                },
-            ],
-            technologies: ["next", "express", "mongodb", "typescript", "scss"],
-            url: "https://engineer-project-web.vercel.app",
-            github: "https://github.com/pollubMsMsEs/engineer-project-web",
-        },
-        rows: 1,
-    },
-    {
-        item: {
-            id: "digishelf",
-            name: "Digishelf",
-            description: "Website for collecting data about popculture",
-            imagesAspectRatio: 0.98,
-            images: [
-                {
-                    alt: "Library page",
-                    src: digishelf_1,
-                },
-                {
-                    alt: "Work creation form",
-                    src: digishelf_2,
-                },
-                {
-                    alt: "Reports page",
-                    src: digishelf_3,
-                },
-            ],
-            technologies: ["next", "express", "mongodb", "typescript", "scss"],
-            url: "https://engineer-project-web.vercel.app",
-            github: "https://github.com/pollubMsMsEs/engineer-project-web",
+            technologies: ["svelte", "typescript", "scss"],
+            url: "htpps://skic.me",
+            github: "https://github.com/MarcinSkic/portfolio-website",
         },
         rows: 1,
     },
