@@ -1,12 +1,25 @@
 import { expect, test } from "vitest";
 import { arrayIntoMatrixOrderedByColumn } from "./math";
 
-test("list is transformed into matrix", () => {
+test("list  is transformed into matrix", () => {
     expect(
-        arrayIntoMatrixOrderedByColumn([1, 2, 3, 4, 5, 6, 7, 8, 9], 3)
+        arrayIntoMatrixOrderedByColumn<number>(
+            [
+                { item: 1, rows: 1 },
+                { item: 2, rows: 1 },
+                { item: 3, rows: 1 },
+                { item: 6, rows: 1 },
+            ],
+            2
+        )
     ).toStrictEqual([
-        [1, 4, 7],
-        [2, 5, 8],
-        [3, 6, 9],
+        [
+            { item: 1, rows: 1 },
+            { item: 3, rows: 1 },
+        ],
+        [
+            { item: 2, rows: 1 },
+            { item: 6, rows: 1 },
+        ],
     ]);
 });

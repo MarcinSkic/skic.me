@@ -1,7 +1,7 @@
-<script lang="ts">
-    import { arrayIntoMatrixOrderedByColumn } from "./math";
+<script lang="ts" generics="T">
+    import { arrayIntoMatrixOrderedByColumn, type MatrixElement } from "./math";
 
-    export let list: any[];
+    export let list: MatrixElement<T>[];
     export let minCols = 1;
     export let maxCols = 3;
     export let minColumnWidth = 500;
@@ -9,7 +9,7 @@
 
     let gridWidth = 0;
     let columnCount = 0;
-    let matrix: any[][] = [];
+    let matrix: MatrixElement<T>[][] = [];
 
     $: {
         const minColumnWithGapWidth = minColumnWidth + gap;
@@ -38,8 +38,8 @@
 >
     {#each matrix as column}
         <div class="grid__column">
-            {#each column as item}
-                <slot {item} />
+            {#each column as element}
+                <slot item={element.item} />
             {/each}
         </div>
     {/each}
