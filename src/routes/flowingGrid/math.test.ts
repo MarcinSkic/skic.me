@@ -52,7 +52,7 @@ test("multirow rules are respected", () => {
                 { item: 1, rows: 1 },
                 { item: 2, rows: 2 },
                 { item: 3, rows: 1 },
-                { item: 6, rows: 1 },
+                { item: 4, rows: 1 },
             ],
             2
         )
@@ -60,7 +60,7 @@ test("multirow rules are respected", () => {
         [
             { item: 1, rows: 1 },
             { item: 3, rows: 1 },
-            { item: 6, rows: 1 },
+            { item: 4, rows: 1 },
         ],
         [{ item: 2, rows: 2 }],
     ]);
@@ -73,7 +73,7 @@ test("multirow doesn't break single column", () => {
                 { item: 1, rows: 1 },
                 { item: 2, rows: 2 },
                 { item: 3, rows: 1 },
-                { item: 6, rows: 1 },
+                { item: 4, rows: 1 },
             ],
             1
         )
@@ -82,7 +82,7 @@ test("multirow doesn't break single column", () => {
             { item: 1, rows: 1 },
             { item: 2, rows: 2 },
             { item: 3, rows: 1 },
-            { item: 6, rows: 1 },
+            { item: 4, rows: 1 },
         ],
     ]);
 });
@@ -111,5 +111,44 @@ test("multirow works for multiple multirows one after another", () => {
             { item: 6, rows: 1 },
         ],
         [{ item: 3, rows: 2 }],
+    ]);
+});
+
+test("multirow works with big rows numbers", () => {
+    expect(
+        arrayIntoMatrixOrderedByColumn(
+            [
+                { item: 1, rows: 1 },
+                { item: 2, rows: 4 },
+                { item: 3, rows: 1 },
+                { item: 4, rows: 1 },
+                { item: 5, rows: 1 },
+                { item: 6, rows: 1 },
+                { item: 7, rows: 1 },
+                { item: 8, rows: 1 },
+                { item: 9, rows: 1 },
+                { item: 10, rows: 1 },
+                { item: 11, rows: 1 },
+            ],
+            3
+        )
+    ).toStrictEqual([
+        [
+            { item: 1, rows: 1 },
+            { item: 4, rows: 1 },
+            { item: 6, rows: 1 },
+            { item: 8, rows: 1 },
+            { item: 10, rows: 1 },
+        ],
+        [
+            { item: 2, rows: 4 },
+            { item: 11, rows: 1 },
+        ],
+        [
+            { item: 3, rows: 1 },
+            { item: 5, rows: 1 },
+            { item: 7, rows: 1 },
+            { item: 9, rows: 1 },
+        ],
     ]);
 });
