@@ -8,18 +8,18 @@ test("list  is transformed into matrix", () => {
                 { item: 1, rows: 1 },
                 { item: 2, rows: 1 },
                 { item: 3, rows: 1 },
-                { item: 6, rows: 1 },
+                { item: 4, rows: 1 },
             ],
             2
         )
     ).toStrictEqual([
         [
-            { item: 1, rows: 1 },
-            { item: 3, rows: 1 },
+            { item: 1, rows: 1, index: 0 },
+            { item: 3, rows: 1, index: 2 },
         ],
         [
-            { item: 2, rows: 1 },
-            { item: 6, rows: 1 },
+            { item: 2, rows: 1, index: 1 },
+            { item: 4, rows: 1, index: 3 },
         ],
     ]);
 });
@@ -37,10 +37,10 @@ test("transformation works with single column", () => {
         )
     ).toStrictEqual([
         [
-            { item: 1, rows: 1 },
-            { item: 2, rows: 1 },
-            { item: 3, rows: 1 },
-            { item: 6, rows: 1 },
+            { item: 1, rows: 1, index: 0 },
+            { item: 2, rows: 1, index: 1 },
+            { item: 3, rows: 1, index: 2 },
+            { item: 6, rows: 1, index: 3 },
         ],
     ]);
 });
@@ -58,11 +58,11 @@ test("multirow rules are respected", () => {
         )
     ).toStrictEqual([
         [
-            { item: 1, rows: 1 },
-            { item: 3, rows: 1 },
-            { item: 4, rows: 1 },
+            { item: 1, rows: 1, index: 0 },
+            { item: 3, rows: 1, index: 2 },
+            { item: 4, rows: 1, index: 3 },
         ],
-        [{ item: 2, rows: 2 }],
+        [{ item: 2, rows: 2, index: 1 }],
     ]);
 });
 
@@ -79,10 +79,10 @@ test("multirow doesn't break single column", () => {
         )
     ).toStrictEqual([
         [
-            { item: 1, rows: 1 },
-            { item: 2, rows: 2 },
-            { item: 3, rows: 1 },
-            { item: 4, rows: 1 },
+            { item: 1, rows: 1, index: 0 },
+            { item: 2, rows: 2, index: 1 },
+            { item: 3, rows: 1, index: 2 },
+            { item: 4, rows: 1, index: 3 },
         ],
     ]);
 });
@@ -102,15 +102,15 @@ test("multirow works for multiple multirows one after another", () => {
         )
     ).toStrictEqual([
         [
-            { item: 1, rows: 1 },
-            { item: 4, rows: 2 },
+            { item: 1, rows: 1, index: 0 },
+            { item: 4, rows: 2, index: 3 },
         ],
         [
-            { item: 2, rows: 1 },
-            { item: 5, rows: 1 },
-            { item: 6, rows: 1 },
+            { item: 2, rows: 1, index: 1 },
+            { item: 5, rows: 1, index: 4 },
+            { item: 6, rows: 1, index: 5 },
         ],
-        [{ item: 3, rows: 2 }],
+        [{ item: 3, rows: 2, index: 2 }],
     ]);
 });
 
@@ -134,21 +134,21 @@ test("multirow works with big rows numbers", () => {
         )
     ).toStrictEqual([
         [
-            { item: 1, rows: 1 },
-            { item: 4, rows: 1 },
-            { item: 6, rows: 1 },
-            { item: 8, rows: 1 },
-            { item: 10, rows: 1 },
+            { item: 1, rows: 1, index: 0 },
+            { item: 4, rows: 1, index: 3 },
+            { item: 6, rows: 1, index: 5 },
+            { item: 8, rows: 1, index: 7 },
+            { item: 10, rows: 1, index: 9 },
         ],
         [
-            { item: 2, rows: 4 },
-            { item: 11, rows: 1 },
+            { item: 2, rows: 4, index: 1 },
+            { item: 11, rows: 1, index: 10 },
         ],
         [
-            { item: 3, rows: 1 },
-            { item: 5, rows: 1 },
-            { item: 7, rows: 1 },
-            { item: 9, rows: 1 },
+            { item: 3, rows: 1, index: 2 },
+            { item: 5, rows: 1, index: 4 },
+            { item: 7, rows: 1, index: 6 },
+            { item: 9, rows: 1, index: 8 },
         ],
     ]);
 });

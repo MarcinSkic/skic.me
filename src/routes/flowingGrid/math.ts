@@ -3,11 +3,13 @@ export interface MatrixElement<T> {
     rows: number;
 }
 
+export type MatrixElementIndexed<T> = MatrixElement<T> & { index: number };
+
 export function arrayIntoMatrixOrderedByColumn<T>(
     list: MatrixElement<T>[],
     cols: number
-) {
-    const matrix: MatrixElement<T>[][] = [];
+): MatrixElementIndexed<T>[][] {
+    const matrix: MatrixElementIndexed<T>[][] = [];
     const jumpsMap = new Map<number, number>();
 
     for (
@@ -40,7 +42,7 @@ export function arrayIntoMatrixOrderedByColumn<T>(
             jumpsMap.set(col, element.rows - 1);
         }
 
-        matrix[col].push(element);
+        matrix[col].push({ ...element, index: elementIndex });
     }
 
     return matrix;
