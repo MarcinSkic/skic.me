@@ -12,7 +12,7 @@
         class="image-slider__prev"
         on:click={() => slider.decreaseCounter()}
     >
-        <iconify-icon icon="mdi:menu-left" style="font-size: 2.5rem;" />
+        <iconify-icon icon="mdi:menu-left" />
     </button>
     <Slider
         bind:this={slider}
@@ -36,7 +36,7 @@
         class="image-slider__next"
         on:click={() => slider.increaseCounter()}
     >
-        <iconify-icon icon="mdi:menu-right" style="font-size: 2.5rem;" />
+        <iconify-icon icon="mdi:menu-right" />
     </button>
 </div>
 
@@ -53,8 +53,10 @@
             z-index: 1;
             height: 100%;
             padding: 0;
+            font-size: 2.5rem;
             color: hsla(0, 0%, 0%, 0.72);
-            background-color: hsla(0, 0%, 0%, 0.155);
+            color: white;
+            background-color: hsla(0, 0%, 0%, 0.255);
             border: 0;
         }
 
