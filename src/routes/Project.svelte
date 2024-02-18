@@ -40,7 +40,6 @@
 
         if (rect.top + visibleHeightToShow < windowInnerHeight) {
             scrolledTo = true;
-            console.log(toShow);
 
             setTimeout(() => {
                 visible = true;
@@ -64,7 +63,7 @@
         <div class="project__icons">
             {#if project.github}
                 <a
-                    class="project__icons__github-icon"
+                    class="project__icons__icon project__icons__icon--github"
                     href={project.github}
                     target="_blank"
                     rel="noopener"
@@ -76,7 +75,7 @@
                 <a href={project.url} target="_blank" rel="author noopener">
                     <iconify-icon
                         icon="mdi:open-in-new"
-                        style="font-size: 1.8rem;"
+                        class="project__icons__icon"
                     />
                 </a>
             {/if}
@@ -133,12 +132,19 @@
             align-items: center;
             justify-self: end;
 
-            a {
+            &__icon {
+                font-size: 1.8rem;
                 color: white;
-            }
+                transition: color 0.5s;
 
-            &__github-icon {
-                width: 2rem;
+                &:hover {
+                    color: var(--color-theme-1);
+                    transition: color 0.8s;
+                }
+
+                &--github {
+                    width: 2rem;
+                }
             }
         }
 
