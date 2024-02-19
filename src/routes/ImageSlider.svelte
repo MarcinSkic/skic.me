@@ -5,11 +5,21 @@
     export let delay: number = 0;
     export let images: { alt: string; src: string }[];
     let slider: any;
+    let visible = false;
 </script>
 
-<div class="image-slider">
+<div
+    class="image-slider"
+    on:pointerenter={() => {
+        visible = true;
+    }}
+    on:pointerleave={() => {
+        visible = false;
+    }}
+>
     <button
-        class="image-slider__prev"
+        class="image-slider__arrow image-slider__arrow--prev"
+        class:image-slider__arrow--visible={visible}
         on:click={() => slider.decreaseCounter()}
     >
         <iconify-icon icon="mdi:menu-left" />
@@ -38,7 +48,8 @@
         </div>
     </Slider>
     <button
-        class="image-slider__next"
+        class="image-slider__arrow image-slider__arrow--next"
+        class:image-slider__arrow--visible={visible}
         on:click={() => slider.increaseCounter()}
     >
         <iconify-icon icon="mdi:menu-right" />
@@ -51,8 +62,7 @@
         grid-area: var(--grid-area);
         height: 100%;
 
-        &__prev,
-        &__next {
+        &__arrow {
             position: absolute;
             top: 0;
             z-index: 1;
@@ -63,14 +73,20 @@
             color: white;
             background-color: hsla(0, 0%, 0%, 0.255);
             border: 0;
-        }
+            opacity: 0%;
+            transition: opacity 0.5s;
 
-        &__prev {
-            left: 0;
-        }
+            &--prev {
+                left: 0;
+            }
 
-        &__next {
-            right: 0;
+            &--next {
+                right: 0;
+            }
+
+            &--visible {
+                opacity: 100%;
+            }
         }
 
         &__img-wrapper {
