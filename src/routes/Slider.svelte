@@ -115,6 +115,27 @@
     on:touchend={() => {
         swipeEnd();
     }}
+    on:pointerdown={(event) => {
+        isPressed = true;
+        swipeStart(event.clientX, event.clientY);
+    }}
+    on:pointermove={(event) => {
+        if (event.pressure !== 0 && isPressed) {
+            swipeChange(event.clientX, event.clientY);
+        }
+    }}
+    on:pointerleave={() => {
+        if (isPressed) {
+            isPressed = false;
+            swipeEnd();
+        }
+    }}
+    on:pointerup={() => {
+        if (isPressed) {
+            isPressed = false;
+            swipeEnd();
+        }
+    }}
 >
     <div class="slider__content" style:--offset={offset}>
         <div aria-hidden="true" class="slider__content__hidden">

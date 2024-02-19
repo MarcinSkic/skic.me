@@ -22,11 +22,16 @@
         arrayIndexDirection="increment"
     >
         <div class="image-slider__img-wrapper" slot="hidden" let:hiddenIndex>
-            <img src={images[hiddenIndex].src} alt={images[hiddenIndex].alt} />
+            <img
+                draggable="false"
+                src={images[hiddenIndex].src}
+                alt={images[hiddenIndex].alt}
+            />
         </div>
 
         <div class="image-slider__img-wrapper" slot="current" let:currentIndex>
             <img
+                draggable="false"
                 src={images[currentIndex]?.src}
                 alt={images[currentIndex]?.alt}
             />
