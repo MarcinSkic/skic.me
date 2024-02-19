@@ -16,6 +16,7 @@
     itemsCount={texts.length}
     {duration}
     {arrayIndexDirection}
+    interactable={false}
     --min-width="calc(var(--font-size) * {longestText})"
 >
     <span slot="hidden" let:hiddenIndex>{texts[hiddenIndex]}</span>

@@ -2,6 +2,7 @@
     import { getControlledInterval, type ControlledInterval } from "$lib/time";
     import { spring } from "svelte/motion";
 
+    export let interactable = true;
     export let itemsCount: number;
     /**
      * Duration between slides in milliseconds
@@ -30,11 +31,15 @@
     }
 
     function swipeStart(clientX: number, clientY: number) {
+        if (!interactable) return;
+
         swipeStartX = clientX;
         swipeStartY = clientY;
     }
 
     function swipeChange(clientX: number, clientY: number) {
+        if (!interactable) return;
+
         swipeEndX = clientX;
         swipeEndY = clientY;
 
@@ -52,6 +57,8 @@
     }
 
     function swipeEnd() {
+        if (!interactable) return;
+
         if (universalModulo($indexCounter, 1) > 0.5) {
             counter = Math.ceil($indexCounter);
             indexCounter.set(counter);
