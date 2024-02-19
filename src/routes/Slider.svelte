@@ -29,7 +29,51 @@
         return ((value % divider) + divider) % divider;
     }
 
+    function swipeStart(clientX: number, clientY: number) {
+        swipeStartX = clientX;
+        swipeStartY = clientY;
+    }
+
+    function swipeChange(clientX: number, clientY: number) {
+        swipeEndX = clientX;
+        swipeEndY = clientY;
+
+        const xDiff = swipeStartX - swipeEndX;
+        const yDiff = swipeStartY - swipeEndY;
+
+        if (isSwiping) {
+            const counterDiff = counter + xDiff / clientWidth;
+            indexCounter.set(counterDiff, { hard: true });
+        } else if (Math.abs(xDiff) > Math.abs(yDiff)) {
+            isSwiping = true;
+            indexCounter.set($indexCounter, { hard: true });
+            interval.stop();
+        }
+    }
+
+    function swipeEnd() {
+        if (universalModulo($indexCounter, 1) > 0.5) {
+            counter = Math.ceil($indexCounter);
+            indexCounter.set(counter);
+        } else {
+            counter = Math.floor($indexCounter);
+            indexCounter.set(counter);
+        }
+
+        isSwiping = false;
+        interval.start();
+    }
+
     const indexCounter = spring(0, {});
+
+    //swiping
+    let isSwiping = false;
+    let isPressed = false;
+    let swipeStartX: number = 0;
+    let swipeStartY: number = 0;
+    let swipeEndX: number = 0;
+    let swipeEndY: number = 0;
+    let clientWidth: number = 0;
 
     let counter = 0;
     let visibilityState: "visible" | "hidden";
@@ -40,6 +84,8 @@
     $: currentIndex = universalModulo(Math.floor($indexCounter), itemsCount);
     $: hiddenIndex = universalModulo(Math.floor($indexCounter + 1), itemsCount);
     $: offset = `${universalModulo($indexCounter, 1) * 100 * -1}%`;
+
+    //$: console.log(offset);
 
     setTimeout(() => {
         interval = getControlledInterval(() => {
@@ -56,7 +102,20 @@
 </script>
 
 <svelte:document bind:visibilityState />
-<div class="slider">
+<div
+    class="slider"
+    bind:clientWidth
+    draggable="false"
+    on:touchstart={(event) => {
+        swipeStart(event.touches[0].clientX, event.touches[0].clientY);
+    }}
+    on:touchmove={(event) => {
+        swipeChange(event.touches[0].clientX, event.touches[0].clientY);
+    }}
+    on:touchend={() => {
+        swipeEnd();
+    }}
+>
     <div class="slider__content" style:--offset={offset}>
         <div aria-hidden="true" class="slider__content__hidden">
             <slot name="hidden" {hiddenIndex}>{hiddenIndex}</slot>
