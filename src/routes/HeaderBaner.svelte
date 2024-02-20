@@ -17,28 +17,41 @@
         <div>
             <TextSlider
                 texts={descriptions}
-                duration={5000}
+                duration={4000}
                 arrayIndexDirection="decrement"
             />
         </div>
     </h1>
+    <h2 class="header-baner__description">
+        With 4 years of programming experience, which includes game and web
+        development, along with a BSE in CS, I'm prepared to tackle a diverse
+        range of projects.
+    </h2>
 </div>
 
 <style lang="scss">
     .header-baner {
-        display: flex;
+        display: grid;
         grid-area: baner;
-        gap: 2rem;
+        grid-template-columns: min-content min-content;
+        gap: 0 2rem;
         align-items: center;
         justify-self: center;
 
+        &__description {
+            grid-area: description;
+            grid-column: 1 / -1;
+            justify-self: center;
+            font-size: calc(var(--font-size) / 2);
+            color: var(--color-text-dark-muted);
+            text-align: center;
+        }
+
         &__photo {
-            grid-area: photo;
             border-radius: 50%;
         }
 
         &__title {
-            grid-area: title;
             margin: 0;
             font-size: var(--font-size);
             color: var(--color-text-dark);

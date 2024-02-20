@@ -31,15 +31,16 @@
 <style lang="scss">
     .header {
         --nav-height: 6rem;
-        --nav-distance-from-bottom: 40vh;
+        --nav-distance-from-bottom: 30vh;
         position: sticky;
         top: calc(-100vh + var(--nav-height));
         z-index: 2;
         display: grid;
         grid-template:
             "baner baner" auto
+            "description description" auto
             "nav nav" var(--nav-distance-from-bottom) / 1fr 1fr;
-        gap: 3rem 1rem;
+        gap: 0.5rem;
         align-content: end;
         justify-content: center;
         height: 100vh;
@@ -69,7 +70,7 @@
             justify-self: center;
             height: var(--nav-height);
             padding: 0 2vw;
-            margin-right: 10rem;
+            margin-right: 0;
             font-size: calc(var(--font-size) / 1.6);
             list-style: none;
 
