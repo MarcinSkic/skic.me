@@ -31,7 +31,7 @@
 <style lang="scss">
     .header {
         --nav-height: 6rem;
-        --nav-distance-from-bottom: 30vh;
+        --nav-distance-from-bottom: 32vh;
         position: sticky;
         top: calc(-100vh + var(--nav-height));
         z-index: 2;
@@ -40,7 +40,6 @@
             "baner baner" auto
             "description description" auto
             "nav nav" var(--nav-distance-from-bottom) / 1fr 1fr;
-        gap: 0.5rem;
         align-content: end;
         justify-content: center;
         height: 100vh;
@@ -70,7 +69,7 @@
             justify-self: center;
             height: var(--nav-height);
             padding: 0 2vw;
-            margin-right: 0;
+            margin: 0;
             font-size: calc(var(--font-size) / 1.6);
             list-style: none;
 
