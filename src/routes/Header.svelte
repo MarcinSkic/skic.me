@@ -1,5 +1,6 @@
-<script>
+<script lang="ts">
     import HeaderBaner from "./HeaderBaner.svelte";
+    export let activeSectionId: string | undefined;
 
     const links = [
         {
@@ -19,7 +20,15 @@
         <ul class="header__links">
             {#each links as link}
                 <li>
-                    <a class="header__links__link" href={link.href}>
+                    <a
+                        href={link.href}
+                        class="header__links__link"
+                        class:header__links__link--active={link.href ===
+                            `#${activeSectionId}`}
+                        aria-current={link.href === `#${activeSectionId}`
+                            ? "page"
+                            : undefined}
+                    >
                         {link.title}
                     </a>
                 </li>
@@ -74,6 +83,7 @@
                 background-size: 200% 0.08em;
                 transition: background-position 0.3s;
 
+                &--active,
                 &:hover {
                     background-position: 100% 100%;
                 }
