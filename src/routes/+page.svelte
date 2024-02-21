@@ -13,15 +13,14 @@
 <Header --font-size="4rem" />
 <main>
     <section id="projects" class="projects">
-        <h2 class="projects__header">Projects</h2>
-        <FlowingGrid list={projects} let:item let:index>
+        <FlowingGrid list={projects} gap={8} let:item>
             <Project
                 project={item}
                 imageSlideDelay={Math.random() * 3000 - 1500}
             />
         </FlowingGrid>
     </section>
-    <section id="contact">
+    <section id="contact" class="contact">
         <h2>Contact</h2>
     </section>
 </main>
@@ -29,6 +28,7 @@
 
 <style lang="scss">
     main {
+        --nav-height: 6rem;
         box-sizing: border-box;
         display: grid;
         flex: 1;
@@ -39,10 +39,11 @@
     }
 
     .projects {
-        padding: 20px;
-        &__header {
-            font-size: 2rem;
-            font-weight: 700;
-        }
+        padding: 0.5rem;
+        scroll-margin-top: var(--nav-height);
+    }
+
+    .contact {
+        scroll-margin-top: var(--nav-height);
     }
 </style>

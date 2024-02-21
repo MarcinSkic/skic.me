@@ -1,4 +1,5 @@
 @import "@fontsource/fira-mono";
+@import "@fontsource-variable/inter";
 
 html {
     scroll-behavior: smooth;
@@ -7,6 +8,7 @@ html {
 :root {
     --font-body: arial, -apple-system, blinkmacsystemfont, "Segoe UI", roboto,
         oxygen, ubuntu, cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    --font-header: "Inter Variable", sans-serif;
     --font-mono: "Fira Mono", monospace;
     --color-bg-0: #94a3b8;
     --color-bg-1: hsl(215, 16%, 60%);
@@ -21,6 +23,15 @@ html {
     --color-text: hsl(229, 84%, 5%);
     --column-width: 42rem;
     --column-margin-top: 4rem;
+    --background: linear-gradient(
+            220deg,
+            var(--color-bg-dark-l1),
+            5%,
+            var(--color-bg-dark),
+            90%,
+            var(--color-bg-dark-d1)
+        )
+        fixed;
 
     font-family: var(--font-body);
     color: var(--color-text);

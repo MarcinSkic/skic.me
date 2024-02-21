@@ -11,29 +11,8 @@
 
     export let imageSlideDelay: number;
     export let project: Project;
-    const duration = Math.random() * 2000 + 4000;
-    const visibleHeightToShow = 300;
-    let scrolledTo = false;
-    let visible = false;
-    let imageSlider: any;
-    let imageSliderHeight = 300;
-    let element: HTMLDivElement;
-    let windowInnerHeight: number;
 
-    onMount(() => {
-        imageSliderHeight = imageSlider.offsetWidth / project.imagesAspectRatio;
-    });
-
-    afterUpdate(() => {
-        if (imageSlider) {
-            imageSliderHeight =
-                imageSlider.offsetWidth / project.imagesAspectRatio;
-        }
-    });
-</script>
-
-<svelte:window
-    on:scroll={() => {
+    function showIfVisible() {
         if (scrolledTo) return;
 
         const rect = element.getBoundingClientRect();
@@ -48,6 +27,34 @@
 
             toShow += 1;
         }
+    }
+
+    const duration = Math.random() * 2000 + 4000;
+    /** Value in px */
+    const visibleHeightToShow = 100;
+    let scrolledTo = false;
+    let visible = false;
+    let imageSlider: any;
+    let imageSliderHeight = 300;
+    let element: HTMLDivElement;
+    let windowInnerHeight: number;
+
+    onMount(() => {
+        imageSliderHeight = imageSlider.offsetWidth / project.imagesAspectRatio;
+        showIfVisible();
+    });
+
+    afterUpdate(() => {
+        if (imageSlider) {
+            imageSliderHeight =
+                imageSlider.offsetWidth / project.imagesAspectRatio;
+        }
+    });
+</script>
+
+<svelte:window
+    on:scroll={() => {
+        showIfVisible();
     }}
     bind:innerHeight={windowInnerHeight}
 />
@@ -111,7 +118,7 @@
     .project {
         display: grid;
         grid-template:
-            "title icons" 35px
+            "title icons" 3rem
             "slider slider" 1fr
             "description description" auto
             "tech tech" auto / 1fr 1fr;
@@ -119,11 +126,12 @@
         padding: 10px 20px 20px;
         color: white;
         visibility: var(--visible);
-        background-color: var(--color-theme-2);
+        background: var(--background);
 
         &__title {
             align-self: center;
             margin: 0;
+            font-size: 1.5rem;
         }
 
         &__icons {

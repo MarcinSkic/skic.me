@@ -38,28 +38,31 @@
         align-items: center;
         justify-self: center;
 
-        &__description {
-            grid-area: description;
-            grid-column: 1 / -1;
-            justify-self: center;
-            font-size: calc(var(--font-size) / 2);
-            color: var(--color-text-dark-muted);
-            text-align: center;
-        }
-
         &__photo {
             border-radius: 50%;
         }
 
         &__title {
             margin: 0;
+            font-family: var(--font-header);
             font-size: var(--font-size);
+            font-weight: 500;
             color: var(--color-text-dark);
             text-align: start;
 
             &__name {
                 color: var(--color-theme-1);
             }
+        }
+
+        &__description {
+            grid-area: description;
+            grid-column: 1 / -1;
+            justify-self: center;
+            font-size: calc(var(--font-size) / 2);
+            line-height: 1.3;
+            color: var(--color-text-dark-muted);
+            text-align: center;
         }
     }
 </style>

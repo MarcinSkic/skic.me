@@ -9,7 +9,8 @@
     export let arrayIndexDirection: "increment" | "decrement";
 
     const longestText =
-        ([...texts].sort((a, b) => a.length - b.length).pop()?.length ?? 0) / 2;
+        ([...texts].sort((a, b) => a.length - b.length).pop()?.length ?? 0) /
+        1.9;
 </script>
 
 <Slider
