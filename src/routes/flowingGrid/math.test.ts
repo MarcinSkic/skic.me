@@ -1,7 +1,7 @@
 import { expect, test } from "vitest";
 import { arrayIntoMatrixOrderedByColumn } from "./math";
 
-test("list  is transformed into matrix", () => {
+test("should return matrix given list", () => {
     expect(
         arrayIntoMatrixOrderedByColumn<number>(
             [
@@ -24,7 +24,7 @@ test("list  is transformed into matrix", () => {
     ]);
 });
 
-test("transformation works with single column", () => {
+test("should return one column matrix when cols is 1", () => {
     expect(
         arrayIntoMatrixOrderedByColumn<number>(
             [
@@ -45,7 +45,7 @@ test("transformation works with single column", () => {
     ]);
 });
 
-test("multirow rules are respected", () => {
+test("should return matrix respecting multirow elements when list contains such elements", () => {
     expect(
         arrayIntoMatrixOrderedByColumn(
             [
@@ -66,7 +66,7 @@ test("multirow rules are respected", () => {
     ]);
 });
 
-test("multirow doesn't break single column", () => {
+test("should return one column matrix with elements in same order as list when cols is 1 and list has multirow elements", () => {
     expect(
         arrayIntoMatrixOrderedByColumn<number>(
             [
@@ -87,7 +87,7 @@ test("multirow doesn't break single column", () => {
     ]);
 });
 
-test("multirow works for multiple multirows one after another", () => {
+test("should return matrix respecting elements order when list contains multirow elements one after another", () => {
     expect(
         arrayIntoMatrixOrderedByColumn<number>(
             [
@@ -114,7 +114,7 @@ test("multirow works for multiple multirows one after another", () => {
     ]);
 });
 
-test("multirow works with big rows numbers", () => {
+test("should return matrix respecting multirow elements when list contains element for 4 rows", () => {
     expect(
         arrayIntoMatrixOrderedByColumn(
             [
