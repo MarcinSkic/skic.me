@@ -1,5 +1,5 @@
 <script>
-    import TextSlider from "./TextSlider.svelte";
+    import TextSlider from "./sliders/TextSlider.svelte";
     import profile from "$lib/images/profile.jpeg";
 
     const descriptions = [

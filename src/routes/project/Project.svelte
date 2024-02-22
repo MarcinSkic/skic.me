@@ -4,7 +4,7 @@
 
 <script lang="ts">
     import { technologies, type Project } from "$lib/projects";
-    import ImageSlider from "./ImageSlider.svelte";
+    import ImageSlider from "../sliders/ImageSlider.svelte";
     import github from "$lib/images/github.svg?raw";
     import { afterUpdate, onMount } from "svelte";
     import { fly } from "svelte/transition";

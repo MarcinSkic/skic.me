@@ -3,7 +3,7 @@
     import { onMount } from "svelte";
     import Footer from "./Footer.svelte";
     import Header from "./Header.svelte";
-    import Project from "./Project.svelte";
+    import Project from "./project/Project.svelte";
     import FlowingGrid from "./flowingGrid/FlowingGrid.svelte";
 
     const visibleHeightToActiveSection = 100;
