@@ -1,6 +1,6 @@
 <div class="footer">
-    <span class="footer__text">Made by Marcin Skic</span>
-    <a href="https://github.com/MarcinSkic">
+    <span class="footer__text">Marcin Skic</span>
+    <a href="https://github.com/MarcinSkic/portfolio-website">
         <iconify-icon icon="simple-icons:github" style="font-size: 1.4rem;" />
     </a>
 </div>

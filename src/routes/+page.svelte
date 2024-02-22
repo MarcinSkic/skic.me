@@ -53,7 +53,29 @@
         </FlowingGrid>
     </section>
     <section id="contact" class="contact" bind:this={contactSection}>
-        <h2>Contact</h2>
+        <div class="contact__title">You can find me here:</div>
+        <div class="contact__links">
+            <a
+                href="https://github.com/MarcinSkic"
+                target="github"
+                rel="noopener"
+            >
+                <iconify-icon icon="cib:github" class="contact__icon" />
+            </a>
+            <a
+                href="https://www.linkedin.com/in/marcin-skic-569bb0272/"
+                target="linkedin"
+                rel="noopener"
+            >
+                <iconify-icon
+                    icon="devicon-plain:linkedin"
+                    class="contact__icon"
+                />
+            </a>
+            <a href="mailto:marcin@skic.me">
+                <iconify-icon icon="mdi:email" class="contact__icon" />
+            </a>
+        </div>
     </section>
 </main>
 <Footer />
@@ -76,6 +98,39 @@
     }
 
     .contact {
+        box-sizing: border-box;
+        display: grid;
+        gap: 3rem;
+        align-content: start;
+        justify-items: center;
+        height: calc(100vh - var(--nav-height) - 42px);
+        padding-top: 25vh;
         scroll-margin-top: var(--nav-height);
+
+        &__title {
+            font-family: var(--font-header);
+            font-size: 4rem;
+            font-weight: 500;
+        }
+
+        &__links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        &__icon {
+            padding: 1rem;
+            font-size: 5rem;
+            color: white;
+            background: var(--color-theme-2);
+            border-radius: 1rem;
+            box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.286);
+            transition: color 0.4s;
+
+            &:hover {
+                color: var(--color-theme-1);
+                transition: color 0.8s;
+            }
+        }
     }
 </style>
