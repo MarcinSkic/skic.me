@@ -8,6 +8,10 @@
             title: "Projects",
         },
         {
+            href: "#experience",
+            title: "Experience",
+        },
+        {
             href: "#contact",
             title: "Contact",
         },

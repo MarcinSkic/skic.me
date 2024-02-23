@@ -1,20 +1,23 @@
 <script lang="ts">
     import { projects } from "$lib/projects";
+    import { experience } from "$lib/experience";
     import { onMount } from "svelte";
     import Footer from "./Footer.svelte";
     import Header from "./Header.svelte";
     import Project from "./project/Project.svelte";
     import FlowingGrid from "./flowingGrid/FlowingGrid.svelte";
+    import Timeline from "./timeline/Timeline.svelte";
 
     const visibleHeightToActiveSection = 100;
     let sections: HTMLElement[] = [];
     let activeSectionId: string | undefined;
     let windowInnerHeight: number;
     let projectsSection: HTMLElement;
+    let experienceSection: HTMLElement;
     let contactSection: HTMLElement;
 
     onMount(() => {
-        sections = [contactSection, projectsSection];
+        sections = [contactSection, experienceSection, projectsSection];
         activeSectionId = getActiveSection(sections)?.id;
     });
 
@@ -51,6 +54,9 @@
                 imageSlideDelay={Math.random() * 3000 - 1500}
             />
         </FlowingGrid>
+    </section>
+    <section id="experience" class="experience" bind:this={experienceSection}>
+        <Timeline experienceList={experience} />
     </section>
     <section id="contact" class="contact" bind:this={contactSection}>
         <div class="contact__title">You can find me here:</div>
@@ -92,9 +98,18 @@
         margin: 0 auto;
     }
 
+    section {
+        scroll-margin-top: var(--nav-height);
+    }
+
     .projects {
         padding: 0.5rem;
-        scroll-margin-top: var(--nav-height);
+    }
+
+    .experience {
+        display: grid;
+        place-items: center;
+        padding-top: 6rem;
     }
 
     .contact {
@@ -103,9 +118,8 @@
         gap: 3rem;
         align-content: start;
         justify-items: center;
-        height: calc(100vh - var(--nav-height) - 42px);
-        padding-top: 25vh;
-        scroll-margin-top: var(--nav-height);
+        margin-top: 6rem;
+        margin-bottom: 5vh;
 
         &__title {
             font-family: var(--font-header);
@@ -122,7 +136,7 @@
             padding: 1rem;
             font-size: 5rem;
             color: white;
-            background: var(--color-theme-2);
+            background: var(--color-bg-dark-l1);
             border-radius: 1rem;
             box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.286);
             transition: color 0.4s;

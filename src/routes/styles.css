@@ -17,7 +17,8 @@ html {
     --color-bg-dark: #0f172a;
     --color-bg-dark-d1: #020617;
     --color-theme-1: #eab308;
-    --color-theme-2: #1e293b;
+    --color-theme-2: #1c2c46;
+    --color-theme-3: hsl(45, 93%, 43%);
     --color-text-dark: white;
     --color-text-dark-muted: hsl(243, 15%, 80%);
     --color-text: hsl(229, 84%, 5%);

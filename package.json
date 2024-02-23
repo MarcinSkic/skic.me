@@ -31,6 +31,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"dayjs": "^1.11.10",
 		"iconify-icon": "^2.0.0"
 	}
 }

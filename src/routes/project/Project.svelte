@@ -8,6 +8,7 @@
     import github from "$lib/images/github.svg?raw";
     import { afterUpdate, onMount } from "svelte";
     import { fly } from "svelte/transition";
+    import { page } from "$app/stores";
 
     export let imageSlideDelay: number;
     export let project: Project;
@@ -39,6 +40,8 @@
     let element: HTMLDivElement;
     let windowInnerHeight: number;
 
+    $: selected = $page.url.hash === `#${project.id}`;
+
     onMount(() => {
         imageSliderHeight = imageSlider.offsetWidth / project.imagesAspectRatio;
         showIfVisible();
@@ -61,7 +64,9 @@
 
 {#key visible}
     <div
+        id={project.id}
         class="project"
+        class:project--active={selected}
         style:--visible={visible ? "visible" : "hidden"}
         in:fly={{ x: -200, duration: 800 }}
         bind:this={element}
@@ -127,6 +132,11 @@
         color: white;
         visibility: var(--visible);
         background: var(--background);
+        scroll-margin-top: calc(6rem + 0.5rem);
+
+        &--active {
+            box-shadow: 5px 5px 20px var(--color-theme-3);
+        }
 
         &__title {
             align-self: center;
