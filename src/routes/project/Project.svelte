@@ -126,7 +126,7 @@
             "title icons" 3rem
             "slider slider" 1fr
             "description description" auto
-            "tech tech" auto / 1fr 1fr;
+            "tech tech" auto / auto 1fr;
         gap: 10px;
         padding: 10px 20px 20px;
         color: white;
@@ -142,6 +142,10 @@
             align-self: center;
             margin: 0;
             font-size: 1.5rem;
+
+            @media (max-width: 768px) {
+                font-size: 1.3rem;
+            }
         }
 
         &__icons {

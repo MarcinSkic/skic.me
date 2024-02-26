@@ -33,19 +33,37 @@
         --header-font-size: 2.2rem;
         --header-font-family: var(--font-header);
         display: grid;
-        grid-template-rows: auto auto auto;
-        grid-template-columns: calc(var(--header-font-size) * 11) 2rem auto;
+        grid-template:
+            "date dot title" auto
+            ". line description" auto
+            ". line roles" auto / calc(var(--header-font-size) * 11) 2rem auto;
         gap: 0 10px;
         align-items: center;
         max-width: 60rem;
 
+        @media (max-width: 768px) {
+            grid-template:
+                "dot date" auto
+                "line title" auto
+                "line description" auto
+                "line roles" auto / 2rem auto;
+            padding: 0 10%;
+            --header-font-size: 1.7rem;
+        }
+
         &__date {
+            grid-area: date;
             justify-self: end;
             font-family: var(--header-font-family);
             font-size: var(--header-font-size);
+
+            @media (max-width: 768px) {
+                justify-self: start;
+            }
         }
 
         &__dot {
+            grid-area: dot;
             justify-self: center;
             width: 1.5rem;
             height: 1.5rem;
@@ -54,8 +72,7 @@
         }
 
         &__line {
-            grid-row: 2 / -1;
-            grid-column: 2 / 3;
+            grid-area: line;
             align-self: stretch;
             justify-self: center;
             width: 5px;
@@ -63,14 +80,14 @@
         }
 
         &__title {
+            grid-area: title;
             justify-self: start;
-
             font-family: var(--header-font-family);
             font-size: var(--header-font-size);
         }
 
         &__description {
-            grid-column: 3 / 4;
+            grid-area: description;
             justify-self: start;
             padding-top: 0.1rem;
             font-size: 1.3rem;
@@ -82,7 +99,7 @@
         }
 
         &__roles {
-            grid-column: 3 / 4;
+            grid-area: roles;
             padding: 0.5rem 0;
             font-size: 1.3rem;
         }

@@ -121,10 +121,18 @@
         margin-top: 6rem;
         margin-bottom: 5vh;
 
+        @media (max-width: 768px) {
+            gap: 1.5rem;
+        }
+
         &__title {
             font-family: var(--font-header);
             font-size: 4rem;
             font-weight: 500;
+
+            @media (max-width: 768px) {
+                font-size: 2rem;
+            }
         }
 
         &__links {
@@ -140,6 +148,11 @@
             border-radius: 1rem;
             box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.286);
             transition: color 0.4s;
+
+            @media (max-width: 768px) {
+                padding: 0.8rem;
+                font-size: 4rem;
+            }
 
             &:hover {
                 color: var(--color-theme-1);

@@ -1,6 +1,5 @@
 <script lang="ts">
     import type { Experience } from "$lib/experience";
-    import dayjs from "dayjs";
     import TimelineEntry from "./TimelineEntry.svelte";
 
     export let experienceList: Experience[];

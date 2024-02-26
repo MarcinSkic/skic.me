@@ -61,6 +61,7 @@
 
         @media (max-width: 768px) {
             --font-size: 2rem;
+            --nav-height: 4rem;
         }
 
         &__links-wrapper {
