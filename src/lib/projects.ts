@@ -1,4 +1,5 @@
 import portfolio1 from "$lib/images/projects/portfolio/header.png";
+import portfolio2 from "$lib/images/projects/portfolio/projects.png";
 import name_that_tune1 from "$lib/images/projects/name_that_tune/selection.png";
 import name_that_tune2 from "$lib/images/projects/name_that_tune/game.png";
 import name_that_tune3 from "$lib/images/projects/name_that_tune/guessed.png";
@@ -37,7 +38,7 @@ export const projects: MatrixElement<Project>[] = [
             id: "laser_inc_idle_miner",
             name: "Laser Inc. Idle Miner",
             description:
-                "Idle game where you mine with lasers to earn as much money as you can, also physics based!",
+                "Idle game where user mines with lasers to earn as much money as he can, also physics based!",
             imagesAspectRatio: 0.5625,
             images: [
                 {
@@ -90,7 +91,7 @@ export const projects: MatrixElement<Project>[] = [
             id: "name_that_tune",
             name: "Name that tune",
             description:
-                "App where you can guess tracks from your playlists and albums on Spotify",
+                "App where user can guess tracks from his playlists and albums on Spotify",
             imagesAspectRatio: 1.263157895,
             images: [
                 {
@@ -122,6 +123,10 @@ export const projects: MatrixElement<Project>[] = [
                 {
                     alt: "Header",
                     src: portfolio1,
+                },
+                {
+                    alt: "Projects view",
+                    src: portfolio2,
                 },
             ],
             technologies: ["svelte", "typescript", "scss"],
