@@ -44,21 +44,25 @@
 <style lang="scss">
     .header {
         --nav-height: 6rem;
-        --nav-distance-from-bottom: 32vh;
+        --nav-distance-from-bottom: calc((100vh - 30rem) / 2);
         position: sticky;
         top: calc(-100vh + var(--nav-height));
         z-index: 2;
         display: grid;
         grid-template:
-            "baner baner" auto
-            "description description" auto
-            "nav nav" var(--nav-distance-from-bottom) / 1fr 1fr;
+            "baner" auto
+            "nav" var(--nav-distance-from-bottom) / 1fr;
         align-content: end;
         justify-content: center;
         height: 100vh;
         color: var(--color-text-dark);
         background: var(--background);
         border-bottom: 1px solid var(--color-bg-2);
+
+        @media (max-width: 768px) {
+            --font-size: 2rem;
+            --nav-distance-from-bottom: 10rem;
+        }
 
         &__links-wrapper {
             display: contents;

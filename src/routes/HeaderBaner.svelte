@@ -10,7 +10,7 @@
 </script>
 
 <div class="header-baner">
-    <img class="header-baner__photo" width="300" src={profile} alt="person" />
+    <img class="header-baner__photo" src={profile} alt="person" />
     <h1 class="header-baner__title">
         Hi, <br />
         I am <span class="header-baner__title__name">Marcin</span> <br />
@@ -38,8 +38,19 @@
         align-items: center;
         justify-self: center;
 
+        @media (max-width: 768px) {
+            grid-template-columns: min-content;
+        }
+
         &__photo {
+            width: 300px;
             border-radius: 50%;
+
+            @media (max-width: 768px) {
+                justify-self: center;
+                width: 200px;
+                margin-bottom: 1rem;
+            }
         }
 
         &__title {
@@ -53,10 +64,13 @@
             &__name {
                 color: var(--color-theme-1);
             }
+
+            @media (max-width: 768px) {
+                text-align: center;
+            }
         }
 
         &__description {
-            grid-area: description;
             grid-column: 1 / -1;
             justify-self: center;
             font-size: calc(var(--font-size) / 2);
