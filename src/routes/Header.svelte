@@ -61,7 +61,6 @@
 
         @media (max-width: 768px) {
             --font-size: 2rem;
-            --nav-distance-from-bottom: 10rem;
         }
 
         &__links-wrapper {

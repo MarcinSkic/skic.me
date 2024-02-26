@@ -54,7 +54,6 @@ body {
             var(--color-bg-2) 50%
         );
     background-attachment: fixed;
-    background-size: 100vw 100vh;
 }
 
 h1,
