@@ -9,7 +9,7 @@
     export let minCols = 1;
     export let maxCols = 3;
     /** Value in px */
-    export let minColumnWidth = 400;
+    export let minColumnWidth = 500;
     /** Value in px */
     export let gap = 40;
 

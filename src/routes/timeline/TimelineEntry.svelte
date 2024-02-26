@@ -41,7 +41,7 @@
         align-items: center;
         max-width: 60rem;
 
-        @media (max-width: 768px) {
+        @media (max-width: 850px) {
             grid-template:
                 "dot date" auto
                 "line title" auto
@@ -57,7 +57,7 @@
             font-family: var(--header-font-family);
             font-size: var(--header-font-size);
 
-            @media (max-width: 768px) {
+            @media (max-width: 850px) {
                 justify-self: start;
             }
         }

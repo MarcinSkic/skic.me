@@ -143,7 +143,7 @@
             margin: 0;
             font-size: 1.5rem;
 
-            @media (max-width: 768px) {
+            @media (max-width: 850px) {
                 font-size: 1.3rem;
             }
         }

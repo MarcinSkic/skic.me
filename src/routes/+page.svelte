@@ -121,7 +121,7 @@
         margin-top: 6rem;
         margin-bottom: 5vh;
 
-        @media (max-width: 768px) {
+        @media (max-width: 850px) {
             gap: 1.5rem;
         }
 
@@ -130,7 +130,7 @@
             font-size: 4rem;
             font-weight: 500;
 
-            @media (max-width: 768px) {
+            @media (max-width: 850px) {
                 font-size: 2rem;
             }
         }
@@ -149,7 +149,7 @@
             box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.286);
             transition: color 0.4s;
 
-            @media (max-width: 768px) {
+            @media (max-width: 850px) {
                 padding: 0.8rem;
                 font-size: 4rem;
             }

@@ -59,7 +59,12 @@
         background: var(--background);
         border-bottom: 1px solid var(--color-bg-2);
 
-        @media (max-width: 768px) {
+        @media (max-width: 1060px) {
+            --font-size: 3rem;
+            --nav-height: 5rem;
+        }
+
+        @media (max-width: 850px) {
             --font-size: 2rem;
             --nav-height: 4rem;
         }

@@ -38,7 +38,7 @@
         align-items: center;
         justify-self: center;
 
-        @media (max-width: 768px) {
+        @media (max-width: 850px) {
             grid-template-columns: min-content;
         }
 
@@ -46,7 +46,11 @@
             width: 300px;
             border-radius: 50%;
 
-            @media (max-width: 768px) {
+            @media (max-width: 1060px) {
+                width: 250px;
+            }
+
+            @media (max-width: 850px) {
                 justify-self: center;
                 width: 200px;
                 margin-bottom: 1rem;
@@ -65,7 +69,7 @@
                 color: var(--color-theme-1);
             }
 
-            @media (max-width: 768px) {
+            @media (max-width: 850px) {
                 text-align: center;
             }
         }
