@@ -54,6 +54,19 @@ body {
             var(--color-bg-2) 50%
         );
     background-attachment: fixed;
+
+    &::-webkit-scrollbar {
+        width: 1rem;
+        height: 1rem;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: var(--color-bg-dark);
+    }
+
+    &::-webkit-scrollbar-track {
+        background: var(--color-bg-1);
+    }
 }
 
 h1,
