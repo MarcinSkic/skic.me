@@ -1,38 +1,14 @@
-# create-svelte
+# Portfolio
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+[![Deploy to GitHub Pages](https://github.com/MarcinSkic/portfolio-website/actions/workflows/deploy.yml/badge.svg?branch=production)](https://skic.me)
+![License](https://img.shields.io/github/license/marcinskic/portfolio-website.svg)
+![Release](https://img.shields.io/github/release/marcinskic/portfolio-website.svg)
 
-## Creating a project
+My portfolio website, [take a look!](https://skic.me)
 
-If you're seeing this, you've probably already done this step. Congrats!
+---
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+### Used technologies
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+[<img align="left" width="26" height="26" alt="Svelte" src="https://api.iconify.design/devicon:svelte.svg" style="padding: 0 20px 16px 0">](https://svelte.dev)
+[<img align="left" width="26" height="26" alt="Sass" src="https://api.iconify.design/devicon:sass.svg" style="padding: 0 20px 16px 0">](https://sass-lang.com)
