@@ -43,8 +43,10 @@
 
 <style lang="scss">
     .header {
-        --nav-height: 6rem;
-        --nav-distance-from-bottom: calc((100vh - 30rem) / 2);
+        --header-content-height: 30rem;
+        --nav-distance-from-bottom: calc(
+            (100vh - var(--header-content-height)) / 2
+        );
         position: sticky;
         top: calc(-100vh + var(--nav-height));
         z-index: 2;
@@ -61,12 +63,10 @@
 
         @media (max-width: 1060px) {
             --font-size: 3rem;
-            --nav-height: 5rem;
         }
 
         @media (max-width: 850px) {
             --font-size: 2rem;
-            --nav-height: 4rem;
         }
 
         &__links-wrapper {

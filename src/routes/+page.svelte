@@ -88,7 +88,6 @@
 
 <style lang="scss">
     main {
-        --nav-height: 6rem;
         box-sizing: border-box;
         display: grid;
         flex: 1;
