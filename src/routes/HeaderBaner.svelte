@@ -77,14 +77,14 @@
 
     &__photo {
       &__img {
-        width: 300px;
+        width: 100%;
         border-radius: 50%;
       }
 
       &__placeholder {
         display: grid;
         place-items: center;
-        width: 300px;
+        width: 100%;
         aspect-ratio: 1;
         font-size: var(--font-size);
         color: var(--color-text-dark);
