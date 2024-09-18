@@ -100,8 +100,8 @@
                 inset: 0px;
                 width: 100%;
                 height: 100%;
-                object-position: top;
                 object-fit: var(--object-fit, contain);
+                object-position: top;
             }
         }
     }

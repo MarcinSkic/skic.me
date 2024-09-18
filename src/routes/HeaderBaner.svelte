@@ -1,16 +1,34 @@
 <script>
   import TextSlider from "./sliders/TextSlider.svelte";
   import profile from "$lib/images/profile.jpeg";
+  import { onMount } from "svelte";
+
+  let photoLoaded = false;
 
   const descriptions = [
     "Web Developer",
     "Technology Enthusiast",
     "Game Developer",
   ];
+
+  onMount(() => {
+    const image = new window.Image();
+    image.src = profile;
+    image.onload = () => {
+      photoLoaded = true;
+    };
+  });
 </script>
 
 <div class="header-baner">
-  <img class="header-baner__photo" src={profile} alt="person" />
+  <div class="header-baner__photo">
+    {#if photoLoaded}
+      <img class="header-baner__photo__img" src={profile} alt="person" />
+    {:else}
+      <div class="header-baner__photo__placeholder">MS</div>
+    {/if}
+  </div>
+
   <h1 class="header-baner__title">
     Hi, <br />
     I am <span class="header-baner__title__name">Marcin</span> <br />
@@ -58,6 +76,22 @@
     }
 
     &__photo {
+      &__img {
+        width: 300px;
+        border-radius: 50%;
+      }
+
+      &__placeholder {
+        display: grid;
+        place-items: center;
+        width: 300px;
+        aspect-ratio: 1;
+        font-size: var(--font-size);
+        color: var(--color-text-dark);
+        background-color: var(--color-theme-2);
+        border-radius: 50%;
+      }
+
       width: 300px;
       border-radius: 50%;
 
@@ -104,6 +138,7 @@
     grid-column: 1 / -1;
     gap: 3rem;
     align-items: center;
+    min-height: calc(var(--font-size) / 1.3 + 1rem);
     padding-top: 1rem;
     padding-left: 0.5rem;
     margin-top: 0.5rem;
