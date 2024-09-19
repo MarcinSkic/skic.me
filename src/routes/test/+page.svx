@@ -1,0 +1,9 @@
+<script lang="ts">
+  import Header from "../Header.svelte";
+</script>
+
+# Moja piękna strona
+
+Hahaha!
+
+<Header />
