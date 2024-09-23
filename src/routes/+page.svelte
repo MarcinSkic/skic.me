@@ -11,7 +11,7 @@
   } from "./+components";
 
   const visibleHeightToActiveSection = 100;
-  let sections: HTMLElement[] = [];
+  let sections: (HTMLElement | undefined)[] = [];
   let activeSectionId: string | undefined;
   let windowInnerHeight: number;
   let projectsSection: HTMLElement;
@@ -23,8 +23,12 @@
     activeSectionId = getActiveSection(sections)?.id;
   });
 
-  function getActiveSection(sections: HTMLElement[]) {
+  function getActiveSection(sections: (HTMLElement | undefined)[]) {
     for (const section of sections) {
+      if (!section) {
+        continue;
+      }
+
       const rect = section.getBoundingClientRect();
 
       if (rect.top + visibleHeightToActiveSection < windowInnerHeight) {
