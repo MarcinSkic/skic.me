@@ -2,14 +2,16 @@
   import { projects } from "$lib/projects";
   import { experience } from "$lib/experience";
   import { onMount } from "svelte";
-  import Footer from "./Footer.svelte";
-  import Header from "./Header.svelte";
-  import Project from "./project/Project.svelte";
-  import FlowingGrid from "./flowingGrid/FlowingGrid.svelte";
-  import Timeline from "./timeline/Timeline.svelte";
+  import {
+    Timeline,
+    FlowingGrid,
+    Project,
+    Footer,
+    Header,
+  } from "./+components";
 
   const visibleHeightToActiveSection = 100;
-  let sections: HTMLElement[] = [];
+  let sections: (HTMLElement | undefined)[] = [];
   let activeSectionId: string | undefined;
   let windowInnerHeight: number;
   let projectsSection: HTMLElement;
@@ -21,8 +23,12 @@
     activeSectionId = getActiveSection(sections)?.id;
   });
 
-  function getActiveSection(sections: HTMLElement[]) {
+  function getActiveSection(sections: (HTMLElement | undefined)[]) {
     for (const section of sections) {
+      if (!section) {
+        continue;
+      }
+
       const rect = section.getBoundingClientRect();
 
       if (rect.top + visibleHeightToActiveSection < windowInnerHeight) {

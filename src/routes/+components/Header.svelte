@@ -11,6 +11,10 @@
       href: "#experience",
       title: "Experience",
     },
+    {
+      href: "/blog",
+      title: "Blog",
+    },
   ];
 </script>
 

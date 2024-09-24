@@ -127,6 +127,7 @@
       grid-column: 1 / -1;
       justify-self: center;
       font-size: calc(var(--font-size) / 2);
+      font-weight: 500;
       line-height: 1.3;
       color: var(--color-text-dark-muted);
       text-align: center;

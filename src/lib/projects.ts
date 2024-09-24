@@ -16,7 +16,7 @@ import sara1 from "$lib/images/projects/sara/title_screen.png";
 import sara2 from "$lib/images/projects/sara/town.png";
 import sara3 from "$lib/images/projects/sara/fight.png";
 import sara4 from "$lib/images/projects/sara/crafting.png";
-import type { MatrixElement } from "../routes/flowingGrid/math";
+import type { MatrixElement } from "../routes/+components/flowingGrid/math";
 
 export const technologies = {
   svelte:
