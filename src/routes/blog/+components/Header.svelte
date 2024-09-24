@@ -44,10 +44,15 @@
       font-size: 1.2rem;
       font-weight: 500;
       color: white;
+      transition: color 0.2s;
 
       &__icon {
         margin-bottom: 2px;
         font-size: 1.5em;
+      }
+
+      &:hover {
+        color: var(--color-theme-1);
       }
     }
   }

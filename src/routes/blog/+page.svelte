@@ -11,6 +11,10 @@
   );
 </script>
 
+<svelte:head>
+  <title>Marcin Skic's Blog</title>
+</svelte:head>
+
 <ul class="posts">
   {#each data.posts as post}
     <Post {post} />

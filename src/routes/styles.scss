@@ -2,141 +2,134 @@
 @import "@fontsource-variable/inter";
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 :root {
-    --font-body: arial, -apple-system, blinkmacsystemfont, "Segoe UI", roboto,
-        oxygen, ubuntu, cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    --font-header: "Inter Variable", sans-serif;
-    --font-mono: "Fira Mono", monospace;
-    --color-bg-0: #94a3b8;
-    --color-bg-1: hsl(215, 16%, 60%);
-    --color-bg-2: hsl(215, 16%, 70%);
-    --color-bg-dark-l1: #1e293b;
-    --color-bg-dark: #0f172a;
-    --color-bg-dark-d1: #020617;
-    --color-theme-1: #eab308;
-    --color-theme-2: #1c2c46;
-    --color-theme-3: hsl(45, 93%, 43%);
-    --color-text-dark: white;
-    --color-text-dark-muted: hsl(243, 15%, 80%);
-    --color-text: hsl(229, 84%, 5%);
-    --column-width: 42rem;
-    --column-margin-top: 4rem;
-    --background: linear-gradient(
-            220deg,
-            var(--color-bg-dark-l1),
-            5%,
-            var(--color-bg-dark),
-            90%,
-            var(--color-bg-dark-d1)
-        )
-        fixed;
+  --font-body: roboto, arial, -apple-system, blinkmacsystemfont, "Segoe UI",
+    oxygen, ubuntu, cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --font-header: "Inter Variable", sans-serif;
+  --font-mono: "Fira Mono", monospace;
+  --color-bg-0: #94a3b8;
+  --color-bg-1: hsl(215, 16%, 60%);
+  --color-bg-2: hsl(215, 16%, 70%);
+  --color-bg-dark-l1: #1e293b;
+  --color-bg-dark: #0f172a;
+  --color-bg-dark-d1: #020617;
+  --color-theme-1: #eab308;
+  --color-theme-2: #1c2c46;
+  --color-theme-3: hsl(45, 93%, 43%);
+  --color-text-dark: white;
+  --color-text-dark-muted: hsl(243, 15%, 80%);
+  --color-text: hsl(229, 84%, 5%);
+  --column-width: 42rem;
+  --column-margin-top: 4rem;
+  --background: linear-gradient(
+      220deg,
+      var(--color-bg-dark-l1),
+      5%,
+      var(--color-bg-dark),
+      90%,
+      var(--color-bg-dark-d1)
+    )
+    fixed;
 
-    font-family: var(--font-body);
-    color: var(--color-text);
+  font-family: var(--font-body);
+  color: var(--color-text);
 }
 
 body {
-    min-height: 100vh;
-    margin: 0;
-    background-color: var(--color-bg-1);
-    background-image: radial-gradient(
-            50% 50% at 50% 50%,
-            rgb(255 255 255 / 75%) 0%,
-            rgb(255 255 255 / 0%) 100%
-        ),
-        linear-gradient(
-            180deg,
-            var(--color-bg-0) 0%,
-            var(--color-bg-1) 15%,
-            var(--color-bg-2) 50%
-        );
-    background-attachment: fixed;
+  min-height: 100vh;
+  margin: 0;
+  background-color: var(--color-bg-1);
+  background-image: radial-gradient(
+      50% 50% at 50% 50%,
+      rgb(255 255 255 / 75%) 0%,
+      rgb(255 255 255 / 0%) 100%
+    ),
+    linear-gradient(
+      180deg,
+      var(--color-bg-0) 0%,
+      var(--color-bg-1) 15%,
+      var(--color-bg-2) 50%
+    );
+  background-attachment: fixed;
 
-    &::-webkit-scrollbar {
-        width: 1rem;
-        height: 1rem;
-    }
+  &::-webkit-scrollbar {
+    width: 1rem;
+    height: 1rem;
+  }
 
-    &::-webkit-scrollbar-thumb {
-        background: var(--color-bg-dark);
-    }
+  &::-webkit-scrollbar-thumb {
+    background: var(--color-bg-dark);
+  }
 
-    &::-webkit-scrollbar-track {
-        background: var(--color-bg-1);
-    }
-}
-
-h1,
-h2,
-p {
-    font-weight: 400;
+  &::-webkit-scrollbar-track {
+    background: var(--color-bg-1);
+  }
 }
 
 p {
-    line-height: 1.5;
+  font-weight: 500;
+}
+
+p {
+  line-height: 1.5;
 }
 
 a {
-    color: var(--color-text);
-    text-decoration: none;
+  color: var(--color-text);
+  text-decoration: none;
 }
 
 h1 {
-    font-size: 2rem;
-    text-align: center;
-}
-
-h2 {
-    font-size: 1rem;
+  text-align: center;
 }
 
 pre {
-    padding: 0.5em;
-    overflow-x: auto;
-    font-family: var(--font-mono);
-    font-size: 16px;
-    color: var(--color-text);
-    background-color: rgb(255 255 255 / 45%);
-    border-radius: 3px;
-    box-shadow: 2px 2px 6px rgb(255 255 255 / 25%);
+  padding: 0.5em;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 16px;
+  color: var(--color-text);
+  background-color: rgb(255 255 255 / 45%);
+  border-radius: 3px;
+  box-shadow: 2px 2px 6px rgb(255 255 255 / 25%);
 }
 
 .text-column {
-    display: flex;
-    flex: 0.6;
-    flex-direction: column;
-    justify-content: center;
-    max-width: 48rem;
-    margin: 0 auto;
+  display: flex;
+  flex: 0.6;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 48rem;
+  margin: 0 auto;
 }
 
 input,
 button {
-    font-family: inherit;
-    font-size: inherit;
+  font-family: inherit;
+  font-size: inherit;
 }
 
 button:focus:not(:focus-visible) {
-    outline: none;
+  outline: none;
 }
 
 @media (width >= 720px) {
-    h1 {
-        font-size: 2.4rem;
-    }
+  h1 {
+    font-size: 2.4rem;
+  }
 }
 
 .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: auto;
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    white-space: nowrap;
-    border: 0;
+  position: absolute;
+  width: 1px;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
 }
