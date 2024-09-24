@@ -1,7 +1,14 @@
-<script>
+<script lang="ts">
+  import { getContext, onMount } from "svelte";
   import Post from "./+components/Post.svelte";
+  import type { BlogHeaderContext } from "./+layout.svelte";
 
   export let data;
+
+  getContext<BlogHeaderContext>("blog-header").setHeader(
+    { text: "Home", href: "/" },
+    "Blog"
+  );
 </script>
 
 <ul class="posts">

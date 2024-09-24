@@ -1,11 +1,42 @@
-<script>
+<script context="module" lang="ts">
+  export interface BlogHeaderContext {
+    setHeader: (
+      previousPage: { text: string; href: string },
+      title: string
+    ) => void;
+  }
+</script>
+
+<script lang="ts">
+  import Footer from "./+components/Footer.svelte";
   import Header from "./+components/Header.svelte";
+  import { setContext } from "svelte";
+
+  function setHeader(
+    _previousPage: { text: string; href: string },
+    _title: string
+  ) {
+    previousPage = _previousPage;
+    title = _title;
+  }
+
+  setContext<BlogHeaderContext>("blog-header", {
+    setHeader,
+  });
+
+  let previousPage = {
+    text: "Home",
+    href: "/",
+  };
+  let title = "";
 </script>
 
 <div class="blog">
-  <Header />
+  <Header {previousPage} {title} />
 
   <slot />
+
+  <Footer />
 </div>
 
 <style lang="scss">

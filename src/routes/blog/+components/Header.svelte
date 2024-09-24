@@ -1,29 +1,40 @@
+<script lang="ts">
+  export let previousPage = {
+    text: "Home",
+    href: "/",
+  };
+  export let title = "Blog";
+</script>
+
 <header class="header">
   <nav>
     <ul class="links">
       <li>
-        <a class="links__link" href="/">
+        <a class="links__link" href={previousPage.href}>
           <iconify-icon icon="mdi:chevron-left" class="links__link__icon" />
-          <span>Home</span>
+          <span>{previousPage.text}</span>
         </a>
       </li>
     </ul>
   </nav>
-  <h1>Blog</h1>
+  {#if title}
+    <h1 class="title">{title}</h1>
+  {/if}
 </header>
 
 <style lang="scss">
   .header {
     display: grid;
-    grid-template-columns: 100px 1fr 100px;
-    place-items: center;
+    grid-template-columns: 150px 1fr 150px;
+    align-items: center;
     justify-self: center;
     width: 100%;
     max-width: 1400px;
+    height: 4rem;
   }
 
   .links {
-    padding: 0;
+    padding-left: 1rem;
     list-style: none;
 
     &__link {
@@ -39,5 +50,9 @@
         font-size: 1.5em;
       }
     }
+  }
+
+  .title {
+    margin: 0;
   }
 </style>
