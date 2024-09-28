@@ -11,7 +11,7 @@ published: false
 
 In 2022 I discovered the concept of time tracking and I fell in love immediately. It allows for an objective measure of productivity and to see where your time is spent. In this post I will assume you are already convinced of benefits time tracking brings, if not then maybe you will be convinced same way I was by [Cortex podcast](https://www.relay.fm/cortex/44).
 
-I should clarify that I don't use automatic time tracking (that detects what site you visit for example), I gave it a try and it produces data that isn't useful in any way. Also it contradicts usefulness of time tracking as tool in mindful decision taking.
+I should clarify that I don't use automatic time tracking (that detects what site you visit or program you launch), I gave it a try and it produces data that isn't useful in any way. Also it contradicts usefulness of time tracking as tool in mindful decision taking.
 
 ## The Problem
 
@@ -28,7 +28,7 @@ Okay, so, before discussing taxonomy let's set some ground rules:
 
 - Decide on one language
 
-I made a mistake of using English everywhere except for descriptions which later led to confusion.
+I made a mistake of using English everywhere except for some but not all descriptions which later led to confusion. Just stick to one, it will be easier for you.
 
 - Pick color scheme
 
@@ -36,43 +36,152 @@ Having an intuitive color system helps immensely while reading charts, it allows
 
 - Start small
 
-At the beggining track only your most productive time, work, side projects, etc. For many people that will be all they need to see positive change that time tracking can bring to their lives.
+At the beggining track only your most productive time: work, side projects, etc. For many people that will be all they need to see positive change that time tracking can bring to their lives. And when you start to feel confident in your habit of time tracking you can easily expand scope.
 
 ## Taxonomy
 
 When designing classification structure you should focus on 2 things: have enough data to create summaries you wish to see but simple enough for your app to autocomplete it as much as possible to remove friction from tracking time.
 
-### Category
-
-Depending on workspace settings can be also called Client or Department.
-
 ### Project
 
 Depending on workspace settings can be also called Location or Job.
 
-### Description
+Moreover this descriptor determines **<span style="color: #ef4444">c</span><span style="color: #f97316">o</span><span style="color: #facc15">l</span><span style="color: #22c55e">o</span><span style="color: #22d3ee">r</span>** of an entry which only highlights its importance. In my system `projects` from the same `category` share colors, as I have many of them and it fits my color scheme.
 
-Freeform field where you can write anything. Because of that it's most common place to introduce same action under different labels, e.g.
+### Category
+
+Depending on workspace settings can be also called Client or Department. This is broadest descriptor of your actions, as it can contain multiple `projects`. It's useful to mark common domain for example:
 
 ```yaml
-category: personal
-project: personal
-description: meditation
+category: entertainment
+project: movie
+```
+
+```yaml
+category: entertainment
+project: series
+```
+
+```yaml
+category: entertainment
+project: gaming
+```
+
+or
+
+```yaml
+category: work
+project: company X
+```
+
+```yaml
+category: work
+project: company Y
+```
+
+However, for many aspects of life project and description are sufficient to describe all the details that you need. In such cases you have 2 options, leave project with no category or create category with the same name e.g.:
+
+```yaml
+category: programming
+project: programming
+description: portfolio page
+```
+
+I would suggest picking second solution as you never know if in the future you wouldn't want to expand scope of your data by moving `description` to `project` and extending data in its place:
+
+```yaml
+category: programming
+project: portfolio page
+description: task-418
+```
+
+#### Example usage
+
+```yaml
+category: must-do
+project: must-do
+description: chores
+```
+
+```yaml
+category: must-do
+project: must-do
+description: chores
+```
+
+### Description
+
+Freeform field where you can write anything. It's best used to represent specific action as in question of "what?" happened. Other metadata like `project` and `tags` should describe circumstances like "where?", "why?" or "with whom?". Also `description` is good place to put task identifier if you use such tools.
+
+#### Antipatterns
+
+- Same action under different label
+
+Because you can write anything it's the most common place to introduce same action under different labels, e.g.
+
+```yaml
+category: must-do
+project: must-do
+description: chores
 ```
 
 and
 
 ```yaml
-category: personal
-project: personal
-description: thinking
+category: must-do
+project: must-do
+description: cleaning
 ```
 
-in reality were the same thing! This happens rarely if that activity is done at least once per week (in Clockify that is the limit of autocomplete memory) but you should consider changing it into project if it is reocurring entry:
+were the same thing! This happens rarely if that activity is done at least once per week (in Clockify that is the limit of autocomplete memory) but you should consider changing it into project if it is reocurring entry:
 
 ```yaml
-category: personal
-project: meditation
+category: must-do
+project: chores
+```
+
+- Grouping with description
+
+Depending on your circumstances you may be tempted to do something like this:
+
+```yaml
+category: work
+project: job-hunting
+description: companyX:interview
+```
+
+```yaml
+category: work
+project: job-hunting
+description: companyX:solving test
+```
+
+I sometimes use this pattern if creating project "companyX" is pointless as it may not show up often but as soon as it starts to repeat I edit existing entries to:
+
+```yaml
+category: work
+project: companyX
+description: task-86
+```
+
+#### Example usage
+
+```yaml
+category: mixed
+project: food
+description: dinner
+```
+
+```yaml
+category: entertainment
+project: movie
+description: WALL-E
+```
+
+```yaml
+category: programming
+project: portfolio page
+description: task-98
 ```
 
 ### Tags
@@ -125,6 +234,31 @@ tags: svelte, js, scss
 
 doesn't data about used technologies exist already somewhere else? If they never change for given `project` and you can check this information in other app they are only unnecessary clutter.
 
-PS. If you are a programmer and wish to have detailed and **automatic** tracking of time spent on programming check out [Wakatime](https://wakatime.com)
+PS. If you are a developer and wish to have detailed and **automatic** tracking of time spent on programming check out [Wakatime](https://wakatime.com)
+
+#### Example usage
+
+```yaml
+category: personal
+project: meditation
+tags: outside
+```
+
+```yaml
+category: people
+project: help
+tags: parents, inside
+```
+
+If you intend to use many tags, especially from different domains, it's convenient to group them with naming convention for easier search e.g.: `group/name` or `group:name`
+
+```yaml
+category: people
+project: meeting
+tags: people/jack, people/chris, people/eve
+description: pizza
+```
 
 ## Summary
+
+Think with open/closed principle, easy to add new data without need to edit existing
