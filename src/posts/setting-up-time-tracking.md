@@ -274,7 +274,7 @@ PS. If you are a developer and wish to have detailed and **automatic** tracking 
 
 #### Example usage
 
-There are less examples as I can't justify using `tags` often, they are too annoying to use
+There are less examples as I can't justify using `tags` often, they are too cumbersome to use
 
 ```yaml
 category: entertainment
@@ -294,4 +294,10 @@ tags: people/jack, people/chris, people/eve
 
 ## Summary
 
-Think with open/closed principle, easy to add new data without need to edit existing
+When designing such system it is useful to think with one SOLID programming rule in mind, open/closed principle, that states:
+
+> software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification
+
+In context of time tracking I understand it as entries should be open for adding more detail, without need to edit existing entries to match new standard.
+
+Obviously when beginning you will have to experiment and see what works for you, but hopefuly this article will help you to avoid some mistakes that I made which made my previous entries incompatible with current ones.
