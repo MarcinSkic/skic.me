@@ -44,9 +44,108 @@ When designing classification structure you should focus on 2 things: have enoug
 
 ### Project
 
-Depending on workspace settings can be also called Location or Job.
+Depending on workspace settings can be also called Location or Job. This is the most basic attribute for your entries, it sets context of your action. When starting time tracking create projects for your productive activities and track entries only with that information, optionally description if you really need that extra information. Skip `categories` as they can be easily added later and `tags` leave for later due to difficulty of using them correctly.
 
-Moreover this descriptor determines **<span style="color: #ef4444">c</span><span style="color: #f97316">o</span><span style="color: #facc15">l</span><span style="color: #22c55e">o</span><span style="color: #22d3ee">r</span>** of an entry which only highlights its importance. In my system `projects` from the same `category` share colors, as I have many of them and it fits my color scheme.
+Moreover this descriptor determines **<span style="color: #ef4444">c</span><span style="color: #f97316">o</span><span style="color: #facc15">l</span><span style="color: #22c55e">o</span><span style="color: #22d3ee">r</span>** of an entries. Unfortunately Clockify doesn't support setting color on `category` level instead of `project` which would fit my setup better but I solved it by setting same color for `projects` in shared `category`.
+
+#### Example usage
+
+```yaml
+project: portfolio page
+```
+
+```yaml
+project: movie
+```
+
+```yaml
+project: personal
+```
+
+```yaml
+project: meeting
+```
+
+### Description
+
+Freeform field where you can write anything. It's best used to represent specific action as in question of "what?" happened. Other taxonomy should describe circumstances like "where?", "why?" or "with whom?". Also `description` is good place to put task identifier if you use such tools.
+
+#### Antipatterns
+
+- Same action under different label
+
+Because you can write anything it's the most common place to introduce same action under different labels, e.g.
+
+```yaml
+project: must-do
+description: chores
+```
+
+and
+
+```yaml
+project: must-do
+description: cleaning
+```
+
+were the same thing! However, this happens rarely if that activity is done at least once per week as that is the memory limit of Clockify's autocomplete. One possible solution is to create `project` with that `description`
+
+```yaml
+project: chores
+```
+
+and if you want to associate this project with others as "must-do" use `category` for that:
+
+```yaml
+category: must-do
+project: chores
+```
+
+- Grouping with description
+
+Depending on your circumstances you may be tempted to do something like this:
+
+```yaml
+category: work
+project: job-hunting
+description: companyX:interview
+```
+
+```yaml
+category: work
+project: job-hunting
+description: companyX:solving test
+```
+
+I sometimes use this pattern if creating project "companyX" is pointless as it may not show up often but as soon as it starts to repeat I edit existing entries to:
+
+```yaml
+category: work
+project: companyX
+description: task-86
+```
+
+#### Example usage
+
+```yaml
+project: portfolio page
+description: task-98
+```
+
+```yaml
+project: movie
+description: WALL-E
+```
+
+```yaml
+project: personal
+description: meditation
+```
+
+```yaml
+project: meeting
+description: pizza
+```
 
 ### Category
 
@@ -98,78 +197,9 @@ description: task-418
 #### Example usage
 
 ```yaml
-category: must-do
-project: must-do
-description: chores
-```
-
-```yaml
-category: must-do
-project: must-do
-description: chores
-```
-
-### Description
-
-Freeform field where you can write anything. It's best used to represent specific action as in question of "what?" happened. Other metadata like `project` and `tags` should describe circumstances like "where?", "why?" or "with whom?". Also `description` is good place to put task identifier if you use such tools.
-
-#### Antipatterns
-
-- Same action under different label
-
-Because you can write anything it's the most common place to introduce same action under different labels, e.g.
-
-```yaml
-category: must-do
-project: must-do
-description: chores
-```
-
-and
-
-```yaml
-category: must-do
-project: must-do
-description: cleaning
-```
-
-were the same thing! This happens rarely if that activity is done at least once per week (in Clockify that is the limit of autocomplete memory) but you should consider changing it into project if it is reocurring entry:
-
-```yaml
-category: must-do
-project: chores
-```
-
-- Grouping with description
-
-Depending on your circumstances you may be tempted to do something like this:
-
-```yaml
-category: work
-project: job-hunting
-description: companyX:interview
-```
-
-```yaml
-category: work
-project: job-hunting
-description: companyX:solving test
-```
-
-I sometimes use this pattern if creating project "companyX" is pointless as it may not show up often but as soon as it starts to repeat I edit existing entries to:
-
-```yaml
-category: work
-project: companyX
-description: task-86
-```
-
-#### Example usage
-
-```yaml
-category: mixed
-project: food
-description: dinner
+category: programming
+project: portfolio page
+description: task-98
 ```
 
 ```yaml
@@ -179,14 +209,20 @@ description: WALL-E
 ```
 
 ```yaml
-category: programming
-project: portfolio page
-description: task-98
+category: personal
+project: personal
+description: meditation
+```
+
+```yaml
+category: people
+project: meeting
+description: pizza
 ```
 
 ### Tags
 
-These are in my opinion the most difficult to use, they allow for great granularity and can express almost any idea but they quickly become annoying to add to your entries. Same as `description` they can be shared between activities from different `categories` and `projects` but they have one unique feature: one entry can have multiple `tags` simultaneously. However this freedom makes them challenging to use, it's easy to forget them or add by accident with applications autocomplete.
+These are in my opinion the most difficult to use, they allow for great granularity and can express almost any idea but they quickly become annoying to add to your entries. Same as `description` they can be shared between activities from different `categories` and `projects` but they have one unique feature: one entry can have multiple `tags` simultaneously. However this freedom makes them challenging to use, it's easy to forget them or add by accident with application autocomplete.
 
 #### Antipatterns
 
@@ -195,7 +231,6 @@ These are in my opinion the most difficult to use, they allow for great granular
 For example
 
 ```yaml
-category: entartainment
 project: entartainment
 tags: movie
 ```
@@ -203,12 +238,11 @@ tags: movie
 and
 
 ```yaml
-category: entartainment
 project: entartainment
 tags: series
 ```
 
-could be replaced with
+should be replaced with
 
 ```yaml
 category: entartainment
@@ -221,6 +255,8 @@ and
 category: entartainment
 project: series
 ```
+
+if one entry can't be movie and series at the same time and these tags are used only for this `project`.
 
 - Using same `tags` for given `project`
 
@@ -238,16 +274,13 @@ PS. If you are a developer and wish to have detailed and **automatic** tracking 
 
 #### Example usage
 
-```yaml
-category: personal
-project: meditation
-tags: outside
-```
+There are less examples as I can't justify using `tags` often, they are too annoying to use
 
 ```yaml
-category: people
-project: help
-tags: parents, inside
+category: entertainment
+project: movie
+description: WALL-E
+tags: animated
 ```
 
 If you intend to use many tags, especially from different domains, it's convenient to group them with naming convention for easier search e.g.: `group/name` or `group:name`
@@ -255,8 +288,8 @@ If you intend to use many tags, especially from different domains, it's convenie
 ```yaml
 category: people
 project: meeting
-tags: people/jack, people/chris, people/eve
 description: pizza
+tags: people/jack, people/chris, people/eve
 ```
 
 ## Summary
