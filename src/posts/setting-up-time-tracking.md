@@ -9,16 +9,16 @@ tags:
 published: false
 ---
 
-TODO: In 2022, I discovered the concept of time tracking and fell in love immediately. It allows for an objective measure of productivity TODO: and to see where your time is spent. In this post, I will assume you are already aware of the benefits time tracking brings, TODO: if not then maybe you will be convinced the same way I was by [Cortex podcast](https://www.relay.fm/cortex/44).
+In 2022, I discovered the concept of time tracking and was immediately sold on it's promise of a tool that objectively measures your productivity and forces your mind to be intentional with actions taken in the moment. In this post, I will assume you are already convinced by the benefits time tracking brings; otherwise, you may listen to [Cortex podcast](https://www.relay.fm/cortex/44) to learn more (that's how I came across this idea).
 
-I should clarify that I don't use automatic time tracking (that detects what site you visit or program you launch). I gave it a try and it produces data that isn't useful in any way. TODO: It also contradicts the utility of time tracking as a tool in mindful decision-making.
+I should clarify that I don't use automatic time tracking (that detects what site you visit or program you launch). I gave it a try and it produces data that isn't useful. It also contradicts the utility of time tracking as a tool in mindful decision-making.
 
 ## Beginner mistakes
 
 After 2 months of getting used to time tracking, I decided to record my whole day: work, relaxation, and everything in between (except for night sleep). However, when doing that, it's easy to overdo:
-You can't log every little detail, otherwise time tracking will become more important than the action itself, TODO: distracting you from things that matter and becoming an unbearable chore. Still, as a first instinct you want to do it, because if you like to time track you probably also TODO: like statistics and don't want to miss any detail of your actions. As with everything in life you have to strike a balance, data must be detailed enough to allow for the generation of useful reports but also easy to track and structured in a way that prevents confusion (e.g. same action under different labels).
+You can't log every little detail, otherwise time tracking will become more important than the action itself, distracting you from things that matter. Moreover, it will become an unbearable chore that will discourage you from keeping this habbit. Still, as a first instinct you want to do it, because if you are the kind of person that gets interested in time tracking, then you want to record all the information you can. As with everything in life you have to strike a balance, data must be detailed enough to allow for the generation of useful reports but also easy to track and structured in a way that prevents confusion (e.g. same action under different labels).
 
-Another aspect that makes time tracking difficult at the beginning is the amount of options that most tools give you when it comes to how you describe your actions. Including but not limited to team, category, project, tags, description, and status (billable/non-billable). During almost 3 years of my time tracking I changed my _taxonomy_ (classification structure) multiple times, ironing out the details. **That's why I would like to share here my thoughts on how to design your system to match desired level of detail while not being cumbersome to track.**
+Another aspect that makes time tracking difficult at the beginning is the amount of options that most tools give you when it comes to how describe your actions. Including but not limited to team, category, project, tags, description, and status (billable/non-billable). During almost 3 years of my time tracking I changed my _taxonomy_ (classification structure) multiple times, ironing out the details. **That's why I would like to share here my thoughts on how to design your system to match desired level of detail while not being cumbersome to track.**
 
 ## Basics
 
@@ -40,7 +40,9 @@ At the beginning track only your most productive time: work, side projects, etc.
 
 ## Taxonomy
 
-When designing a classification structure you should focus on 2 things: TODO: have enough data to create summaries you wish to see but simple enough for your app to autocomplete it as much as possible to remove friction from tracking time.
+When designing a classification structure you should focus on 2 things: TODO: word about autocomplete here, with photo in mind have enough data to create summaries you wish to see but simple enough for your app to autocomplete it as much as possible to remove friction from tracking time.
+
+![Example of autocomplete](/src/posts/setting-up-time-tracking/autocomplete.png)
 
 ### Project
 
