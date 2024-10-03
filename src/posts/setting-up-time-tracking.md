@@ -1,5 +1,5 @@
 ---
-title: How to start time tracking
+title: Intro to time tracking
 description: "Overview of how to use metadata like: category, project, tags, etc. to describe your activities in productive and convenient way"
 date: "2024-09-25"
 tags:
@@ -7,6 +7,7 @@ tags:
   - clockify
   - time tracking
 published: false
+read_time: 7min
 ---
 
 In 2022, I discovered the concept of time tracking and was immediately sold on it's promise of a tool that objectively measures your productivity and forces your mind to be intentional with actions taken in the moment. In this post, I will assume you are already convinced by the benefits time tracking brings; otherwise, you may listen to [Cortex podcast](https://www.relay.fm/cortex/44) to learn more (that's how I came across this idea).
@@ -18,7 +19,7 @@ I should clarify that I don't use automatic time tracking (that detects what sit
 After 2 months of getting used to time tracking, I decided to record my whole day: work, relaxation, and everything in between (except for night sleep). However, when doing that, it's easy to overdo:
 You can't log every little detail, otherwise time tracking will become more important than the action itself, distracting you from things that matter. Moreover, it will become an unbearable chore that will discourage you from keeping this habbit. Still, as a first instinct you want to do it, because if you are the kind of person that gets interested in time tracking, then you want to record all the information you can. As with everything in life you have to strike a balance, data must be detailed enough to allow for the generation of useful reports but also easy to track and structured in a way that prevents confusion (e.g. same action under different labels).
 
-Another aspect that makes time tracking difficult at the beginning is the amount of options that most tools give you when it comes to how describe your actions. Including but not limited to team, category, project, tags, description, and status (billable/non-billable). During almost 3 years of my time tracking I changed my _taxonomy_ (classification structure) multiple times, ironing out the details. **That's why I would like to share here my thoughts on how to design your system to match desired level of detail while not being cumbersome to track.**
+Another aspect that makes time tracking difficult at the beginning is the amount of options that most tools give you when it comes to how to describe your actions. Including but not limited to team, category, project, tags, description, and status (billable/non-billable). During almost 3 years of my time tracking I changed my _taxonomy_ (classification structure) multiple times, ironing out the details. TODO: Based on my experiences I would like to describe you thought process behind creating such system. **That's why I would like to share here my thoughts on how to design your system to match desired level of detail while not being cumbersome to track.**
 
 ## Basics
 
@@ -26,19 +27,11 @@ My choice for time tracking is [Clockify](https://clockify.me/), as it has a ver
 
 Okay, so, before discussing taxonomy let's set some ground rules:
 
-- Decide on one language
+- **Decide on one language:** I made the mistake of using English everywhere except for some descriptions and it slowed down creation and search of entries by adding pointless questions, e.g., "Did I write titles for movies in English or my native language?". Stick to one, even if it sometimes feels weird, consistency pays off.
 
-I made the mistake of using English everywhere except for some descriptions and it led to unnecessary problem. It slowed down creation and search of entries by adding pointless questions, e.g., "Did I write titles for movies in English or my native language?". Stick to one, even if it sometimes feels weird, consistency pays off.
+- **Pick a color scheme:** An intuitive color system makes it easy to interpret charts by TODO: MAKING YOU ASSOCIATE associating certain emotions with different colors. If you lack an idea where to start, my system uses a hue scale to assign meaning to entries: colder colors mean desired activities (work, programming, hobbies, etc.) while warmer mean suboptimal ones (gaming, browsing the internet, etc.). <br> <br> ![Example dashboard with my system](/src/posts/setting-up-time-tracking/colors.png)
 
-- Pick a color scheme
-
-An intuitive color system makes it easy to interpret charts by associating certain emotions with different colors. If you lack an idea where to start, my system uses a hue scale to assign meaning to entries: colder colors mean desired activities (work, programming, hobbies, etc.) while warmer mean suboptimal ones (gaming, browsing the internet, etc.).
-
-![Example dashboard with my system](/src/posts/setting-up-time-tracking/colors.png)
-
-- Start small
-
-At the beginning track only your most productive time: work, side projects, etc. For many people that will be all they need to see positive change that time tracking can bring to their lives. And if you decide to record more then tips from this post should make the transition easy.
+- **Start small:** at the beginning track only your most productive time: work, side projects, etc. For many people that will be all they need to see positive change that time tracking can bring to their lives. And if you decide to record more then TODO: TIPS SOUNDS BAD tips from this post should make the transition easy.
 
 ## Taxonomy
 
@@ -74,61 +67,6 @@ project: meeting
 
 A freeform field where you can write anything. It's best used to represent specific action as "what?" happened. Other taxonomy should describe circumstances like "where?", "why?" or "with whom?". Also `description` is a suitable place to put a task identifier if you use a task manager.
 
-#### Antipatterns
-
-- Same action under a different label
-
-Because you can write anything it's the most common place to introduce the same action under different labels, e.g.
-
-```yaml
-project: must-do
-description: chores
-```
-
-and
-
-```yaml
-project: must-do
-description: cleaning
-```
-
-are the same thing! However, this happens rarely if TODO: that activity is performed at least once per week, as that is the constraint of Clockify's autocomplete memory. One possible solution is to create a `project` with that `description`
-
-```yaml
-project: chores
-```
-
-and if you want to associate this project with others as a "must-do" use `category` for that:
-
-```yaml
-category: must-do
-project: chores
-```
-
-- Grouping with description
-
-Depending on your circumstances you may be tempted to do something like this:
-
-```yaml
-category: work
-project: job-hunting
-description: companyX:interview
-```
-
-```yaml
-category: work
-project: job-hunting
-description: companyX:solving test
-```
-
-I sometimes use this pattern if creating project "companyX" is pointless TODO: as it may not show up often but as soon as it starts to repeat I edit existing entries to:
-
-```yaml
-category: work
-project: companyX
-description: task-86
-```
-
 #### Example usage
 
 ```yaml
@@ -150,6 +88,61 @@ description: meditation
 project: meeting
 description: pizza
 ```
+
+#### Antipatterns
+
+<ul>
+<li>
+
+**Same action under a different label:** Because you can write anything it's the most common place to introduce the same action under different labels, e.g.
+
+```yaml
+project: must-do
+description: chores
+```
+
+and
+
+```yaml
+project: must-do
+description: cleaning
+```
+
+are the same thing! However, this happens rarely if this entry is used often as autocomplete fills it for us. Otherwise one possible solution is to create a `project` with that `description`
+
+```yaml
+project: chores
+```
+
+and if you want to associate this project with others as a "must-do" use `category` for that:
+
+```yaml
+category: must-do
+project: chores
+```
+
+</li>
+
+<li>
+
+**Grouping with description:** Depending on your circumstances you may be tempted to do something like this:
+
+```yaml
+category: work
+project: job-hunting
+description: companyX:interview
+```
+
+```yaml
+category: work
+project: job-hunting
+description: companyX:solving test
+```
+
+It's okay if used rarely for short-lived events but I would discourage using it often, it's better to have predefined `projects` to choose from than to try to remember these, especially if there is big time gap between usage of specific groups, making it easier to introduce mistakes.
+
+</li>
+</ul>
 
 ### Category
 
@@ -230,11 +223,32 @@ These are in my opinion the most difficult to use, they allow for great granular
 
 ![How tags break autocomplete](/src/posts/setting-up-time-tracking/autocomplete-tags.png)
 
+#### Example usage
+
+There are less examples as I can't justify using `tags` often, TODO: they are too cumbersome to use
+
+```yaml
+category: entertainment
+project: movie
+description: WALL-E
+tags: animated
+```
+
+If you intend to use many tags, especially from different domains, it's convenient to group them with naming convention for easier search e.g.: `group/name` or `group:name`
+
+```yaml
+category: people
+project: meeting
+description: pizza
+tags: people/jack, people/chris, people/eve
+```
+
 #### Antipatterns
 
-- Using one `tag` per entry for given `category`
+<ul>
+<li>
 
-For example
+**Using one `tag` per entry for given `category`:** For example
 
 ```yaml
 project: entartainment
@@ -264,9 +278,11 @@ project: series
 
 TODO: new sentence here Reason being if one entry can't be a movie and a series at the same time and these tags are used only for this `project`.
 
-- Using same `tags` for given `project`
+</li>
 
-Given such entry
+<li>
+
+**Using same `tags` for given `project`:** Given such entry
 
 ```yaml
 category: programming
@@ -274,29 +290,12 @@ project: portfolio page
 tags: svelte, js, scss
 ```
 
-doesn't data about used technologies exist already on code repository? If these `tags` never change for a given `project` and this information is available somewhere else, they are only unnecessary clutter.
+doesn't data about used technologies exist already in the code repository? If these `tags` never change for a given `project` and this information is available somewhere else, they are only unnecessary clutter.
 
 PS. If you are a developer and wish to have detailed and **automatic** tracking of time spent on programming check out [Wakatime](https://wakatime.com)
 
-#### Example usage
-
-There are less examples as I can't justify using `tags` often, TODO: they are too cumbersome to use
-
-```yaml
-category: entertainment
-project: movie
-description: WALL-E
-tags: animated
-```
-
-If you intend to use many tags, especially from different domains, it's convenient to group them with naming convention for easier search e.g.: `group/name` or `group:name`
-
-```yaml
-category: people
-project: meeting
-description: pizza
-tags: people/jack, people/chris, people/eve
-```
+</li>
+</ul>
 
 ## Summary
 
