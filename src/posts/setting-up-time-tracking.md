@@ -28,19 +28,21 @@ Okay, so, before discussing taxonomy let's set some ground rules:
 
 - Decide on one language
 
-I made the mistake of using English everywhere TODO: except for some but not all descriptions which later led to confusion. Stick to one language, it will accelerate search by removing pointless questions: "Did I write title for this movie in English or my native language?"
+I made the mistake of using English everywhere except for some descriptions and it led to unnecessary problem. It slowed down creation and search of entries by adding pointless questions, e.g., "Did I write titles for movies in English or my native language?". Stick to one, even if it sometimes feels weird, consistency pays off.
 
 - Pick a color scheme
 
-Having an intuitive color system helps immensely while reading charts TODO: by allowing to quickly asses what type of activities time was spent on. If you lack an idea where to start, my system uses hue scale to assign meaning to entries: colder colors mean desired activities (work, programming, hobbies, etc.) while warmer mean suboptimal ones (gaming, browsing the internet, etc.).
+An intuitive color system makes it easy to interpret charts by associating certain emotions with different colors. If you lack an idea where to start, my system uses a hue scale to assign meaning to entries: colder colors mean desired activities (work, programming, hobbies, etc.) while warmer mean suboptimal ones (gaming, browsing the internet, etc.).
+
+![Example dashboard with my system](/src/posts/setting-up-time-tracking/colors.png)
 
 - Start small
 
-At the beginning track only your most productive time: work, side projects, etc. For many people that will be all they need to see positive change that time tracking can bring to their lives. TODO: When you start to feel confident in your habit of time tracking you can easily expand the scope.
+At the beginning track only your most productive time: work, side projects, etc. For many people that will be all they need to see positive change that time tracking can bring to their lives. And if you decide to record more then tips from this post should make the transition easy.
 
 ## Taxonomy
 
-When designing a classification structure you should focus on 2 things: TODO: word about autocomplete here, with photo in mind have enough data to create summaries you wish to see but simple enough for your app to autocomplete it as much as possible to remove friction from tracking time.
+Ground rules set, here I will go into the details of setting up a classification system. However, before that, I have to explain how I use my time tracker so you can better understand my design decisions. My goal is to write 2 to 4 letters into the `description` box and select one of the suggested entries. Fortunately, this search takes into account all fields: `project`, `category`, `description`, and even `tags`. Yet, there is a limit of available suggestions (for Clockify it's last 250 unique entries from the previous 60 days, which for me translates roughly to a week of data). After taking all of this into account, entries should repeat as much as possible but also be distinguishable from each other for a quick search.
 
 ![Example of autocomplete](/src/posts/setting-up-time-tracking/autocomplete.png)
 
@@ -225,6 +227,8 @@ description: pizza
 ### Tags
 
 These are in my opinion the most difficult to use, they allow for great granularity and can express almost any idea but quickly become annoying to add to your entries. Same as `description` they can be shared between activities from different `categories` and `projects` but have one unique feature: one entry can have multiple `tags` simultaneously. However this freedom makes them challenging to use, it's easy to forget or add them by accident with the application autocomplete. TODO: describe that autocomplete suggests entries the same as before
+
+![How tags break autocomplete](/src/posts/setting-up-time-tracking/autocomplete-tags.png)
 
 #### Antipatterns
 
