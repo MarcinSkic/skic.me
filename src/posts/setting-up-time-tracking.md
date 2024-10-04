@@ -19,7 +19,7 @@ I should clarify that I don't use automatic time tracking (that detects what sit
 After 2 months of getting used to time tracking, I decided to record my whole day: work, relaxation, and everything in between (except for night sleep). However, when doing that, it's easy to overdo:
 You can't log every little detail, otherwise time tracking will become more important than the action itself, distracting you from things that matter. Moreover, it will become an unbearable chore that will discourage you from keeping this habbit. Still, as a first instinct you want to do it, because if you are the kind of person that gets interested in time tracking, then you want to record all the information you can. As with everything in life you have to strike a balance, data must be detailed enough to allow for the generation of useful reports but also easy to track and structured in a way that prevents confusion (e.g. same action under different labels).
 
-Another aspect that makes time tracking difficult at the beginning is the amount of options that most tools give you when it comes to how to describe your actions. Including but not limited to team, category, project, tags, description, and status (billable/non-billable). During almost 3 years of my time tracking I changed my _taxonomy_ (classification structure) multiple times, ironing out the details. TODO: Based on my experiences I would like to describe you thought process behind creating such system. **That's why I would like to share here my thoughts on how to design your system to match desired level of detail while not being cumbersome to track.**
+Another aspect that makes time tracking difficult at the beginning is the amount of options that most tools give you when it comes to how to describe your actions. Including but not limited to team, category, project, tags, description, and status (billable/non-billable). During almost 3 years of my time tracking I changed my _taxonomy_ (classification structure) multiple times, ironing out the details. **That's why I would like to share here my conclusions so you can avoid redesigning your system multiple times**
 
 ## Basics
 
@@ -29,9 +29,9 @@ Okay, so, before discussing taxonomy let's set some ground rules:
 
 - **Decide on one language:** I made the mistake of using English everywhere except for some descriptions and it slowed down creation and search of entries by adding pointless questions, e.g., "Did I write titles for movies in English or my native language?". Stick to one, even if it sometimes feels weird, consistency pays off.
 
-- **Pick a color scheme:** An intuitive color system makes it easy to interpret charts by TODO: MAKING YOU ASSOCIATE associating certain emotions with different colors. If you lack an idea where to start, my system uses a hue scale to assign meaning to entries: colder colors mean desired activities (work, programming, hobbies, etc.) while warmer mean suboptimal ones (gaming, browsing the internet, etc.). <br> <br> ![Example dashboard with my system](/src/posts/setting-up-time-tracking/colors.png)
+- **Pick a color scheme:** An intuitive color system aids in interpreting charts by making you associate certain emotions with different colors. If you lack an idea where to start, my system uses a hue scale to assign meaning to entries: colder colors mean desired activities (work, programming, hobbies, etc.) while warmer mean suboptimal ones (gaming, browsing the internet, etc.). <br> <br> ![Example dashboard with my system](/src/posts/setting-up-time-tracking/colors.png)
 
-- **Start small:** at the beginning track only your most productive time: work, side projects, etc. For many people that will be all they need to see positive change that time tracking can bring to their lives. And if you decide to record more then TODO: TIPS SOUNDS BAD tips from this post should make the transition easy.
+- **Start small:** at the beginning track only your most productive time: work, side projects, etc. For many people that will be all they need to see positive change that time tracking can bring to their lives. And if you decide to record more, the guidance from this post should make the transition easy.
 
 ## Taxonomy
 
@@ -41,9 +41,7 @@ Ground rules set, here I will go into the details of setting up a classification
 
 ### Project
 
-Depending on workspace settings, `project` can also be called `location` or `job`. This is the most basic attribute for your entries, it sets the context of your action. TODO: When starting time tracking create projects for your productive activities and track entries only with that information, optionally description if you need that extra information. TODO: Skip `categories` as they can be easily added later and `tags` leave for later due to the difficulty of using them correctly.
-
-Moreover this descriptor determines **<span style="color: #ef4444">c</span><span style="color: #f97316">o</span><span style="color: #facc15">l</span><span style="color: #22c55e">o</span><span style="color: #22d3ee">r</span>** of entries. Unfortunately, Clockify doesn't support setting color on the `category` level which would fit my setup better but I solved it by setting the same color for `projects` which share `category`.
+Depending on workspace settings, `project` can also be called `location` or `job`. This is the most basic attribute for your entries, it sets the context of your actions and determines their **<span style="color: #ef4444">c</span><span style="color: #f97316">o</span><span style="color: #facc15">l</span><span style="color: #22c55e">o</span><span style="color: #22d3ee">r</span>**. Use only `project` at the beginning, optionally `description` if you require additional details. Skip `categories` and `tags` for now—`categories` can easily be added later, and `tags` can be challenging to use correctly.
 
 #### Example usage
 
