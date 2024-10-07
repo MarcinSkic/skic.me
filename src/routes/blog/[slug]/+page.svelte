@@ -45,6 +45,8 @@
       <a
         href={`https://github.com/MarcinSkic/portfolio-website/blob/main/src/posts/${data.meta.slug}.md`}
         class="cta-github__link"
+        target="github_edit"
+        rel="noopener"
       >
         <span>edit it on Github</span><iconify-icon icon="mdi:open-in-new" /></a
       >
