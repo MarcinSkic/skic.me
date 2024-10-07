@@ -26,7 +26,7 @@ My choice for time tracking is [Clockify](https://clockify.me/), as it has a gen
 
 Okay, so, before discussing taxonomy let's set some ground rules:
 
-- **Decide on one language:** I made the mistake of using English everywhere except for some descriptions and it slowed down creation and search of entries by adding pointless questions, such as, "Did I write titles for movies in English or my native language?". Stick to one, even if it sometimes feels weird, consistency pays off.
+- **Decide on one language:** I made the mistake of using English everywhere except for some descriptions. It slowed down creation and search of entries by adding pointless questions, such as, "Did I write titles for movies in English or my native language?". Stick to one, even if it sometimes feels weird, consistency pays off.
 
 - **Pick a color scheme:** An intuitive color system aids in interpreting charts by making you associate certain emotions with different colors. If you lack an idea where to start, my system uses a hue scale to assign meaning to entries: colder colors mean desired activities (work, programming, hobbies, etc.) while warmer mean suboptimal ones (gaming, browsing the internet, etc.). <br> <br> ![Example dashboard with my system](/images/intro-to-time-tracking/colors.png)
 
