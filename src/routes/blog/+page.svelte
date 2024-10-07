@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Footer from "./+components/Footer.svelte";
   import { getContext, onMount } from "svelte";
   import Post from "./+components/Post.svelte";
   import type { BlogHeaderContext } from "./+layout.svelte";
@@ -20,6 +21,8 @@
     <Post {post} />
   {/each}
 </ul>
+
+<Footer />
 
 <style lang="scss">
   .posts {

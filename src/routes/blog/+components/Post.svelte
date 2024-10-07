@@ -7,7 +7,10 @@
 <li>
   <a class="post" href="/blog/{post.slug}">
     <h3 class="post__title">{post.title}</h3>
-    <div class="post__date">{post.date}</div>
+    <div class="post__date">
+      <time datetime={post.date}>{post.date}</time> <span>|</span>
+      <span>{post.readingTime}</span>
+    </div>
     <p class="post__description">{post.description}</p>
   </a>
 </li>
