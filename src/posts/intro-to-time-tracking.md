@@ -289,7 +289,7 @@ tags: svelte, js, scss
 
 doesn't data about used technologies exist already in the code repository? If these `tags` never change for a given `project` and this information is available somewhere else, they are only unnecessary clutter.
 
-PS. If you are a developer and wish to have detailed and **automatic** tracking of time spent on programming check out [Wakatime](https://wakatime.com)
+PS. If you are a developer and wish to have detailed and **automatic** tracking of time spent on programming check out [WakaTime](https://wakatime.com)
 
 </li>
 </ul>

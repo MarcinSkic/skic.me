@@ -86,17 +86,6 @@ h1 {
   text-align: center;
 }
 
-pre {
-  padding: 0.5em;
-  overflow-x: auto;
-  font-family: var(--font-mono);
-  font-size: 16px;
-  color: var(--color-text);
-  background-color: rgb(255 255 255 / 45%);
-  border-radius: 3px;
-  box-shadow: 2px 2px 6px rgb(255 255 255 / 25%);
-}
-
 .text-column {
   display: flex;
   flex: 0.6;
