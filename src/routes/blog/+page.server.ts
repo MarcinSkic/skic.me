@@ -7,6 +7,7 @@ export type Post = {
   date: string;
   tags: Categories[];
   published: boolean;
+  readingTime: string;
 };
 
 export async function load() {

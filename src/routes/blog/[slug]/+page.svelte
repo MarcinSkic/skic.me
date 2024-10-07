@@ -29,6 +29,8 @@
       {/each}
       <li class="header__date">
         <time datetime={data.meta.date}>{prettyDate}</time>
+        <span>|</span>
+        <span>{data.meta.readingTime}</span>
       </li>
     </ul>
   </header>

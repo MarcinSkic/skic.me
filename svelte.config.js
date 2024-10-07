@@ -13,6 +13,7 @@ import retextSpell from "retext-spell";
 import { unified } from "unified";
 import reporter from "vfile-reporter";
 import dictionaryEn from "dictionary-en";
+import readingTime from "remark-reading-time";
 
 const ignoredWords = [
   "Wakatime",
@@ -26,6 +27,8 @@ const ignoredWords = [
 const mdsvexConfig = {
   extensions: [".svx", ".md"],
   remarkPlugins: [
+    readingTime,
+    saveReadingTime,
     [
       remarkRetext,
       unified()
@@ -41,6 +44,15 @@ const mdsvexConfig = {
     reportRetextWarnings,
   ],
 };
+
+function saveReadingTime() {
+  return function (_, file) {
+    file.data.fm = {
+      ...file.data.fm,
+      readingTime: `${Math.ceil(file.data.readingTime.minutes)} min`,
+    };
+  };
+}
 
 function reportRetextWarnings() {
   return function (_, file) {
