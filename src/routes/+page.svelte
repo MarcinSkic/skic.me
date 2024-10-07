@@ -42,7 +42,12 @@
 
 <svelte:head>
   <title>Marcin Skic</title>
-  <meta name="description" content="Marcin Skic's portfolio page" />
+  <meta
+    name="description"
+    content="With 4 years of programming experience, which includes game and web development, along with a BSE in CS, I'm prepared to tackle a diverse range of projects."
+  />
+  <meta property="og:image" content="/images/previews/main.png" />
+  <meta property="og:url" content="https://skic.me" />
 </svelte:head>
 <svelte:window
   bind:innerHeight={windowInnerHeight}

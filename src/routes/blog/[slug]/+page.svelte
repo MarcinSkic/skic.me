@@ -17,6 +17,11 @@
 
 <svelte:head>
   <title>{data.meta.title}</title>
+  <meta name="description" content={data.meta.description} />
+  <meta
+    property="og:image"
+    content="/images/intro-to-time-tracking/preview.png"
+  />
 </svelte:head>
 
 <article class="post">

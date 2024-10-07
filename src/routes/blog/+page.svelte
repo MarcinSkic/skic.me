@@ -13,7 +13,12 @@
 </script>
 
 <svelte:head>
-  <title>Marcin Skic's Blog</title>
+  <title>Blog - Marcin Skic</title>
+  <meta
+    name="description"
+    content={`Read newest post: ${data.posts[0].title}`}
+  />
+  <meta property="og:image" content="/images/previews/blog.png" />
 </svelte:head>
 
 <ul class="posts">
