@@ -31,6 +31,7 @@
     width: 100%;
     max-width: 1400px;
     height: 4rem;
+    margin-top: 0.5rem;
   }
 
   .links {

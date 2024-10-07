@@ -1,20 +1,10 @@
 <footer class="footer">
   <span class="footer__attribution">
-    Made by Marcin Skic
+    Written by Marcin Skic
     <a href="https://github.com/MarcinSkic" target="github" rel="noopener">
       <iconify-icon icon="cib:github" class="footer__github" />
     </a></span
   >
-  <span>|</span>
-  <span>
-    Inspired by
-    <a
-      class="footer__link"
-      href="https://joyofcode.xyz/sveltekit-markdown-blog"
-    >
-      this awesome article
-    </a>
-  </span>
 </footer>
 
 <style lang="scss">
@@ -23,11 +13,6 @@
     gap: 1rem;
     place-self: center;
     margin-bottom: 1rem;
-    &__link {
-      font-weight: 600;
-      color: white;
-      text-decoration: underline;
-    }
 
     &__attribution {
       display: flex;

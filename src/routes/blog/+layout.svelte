@@ -8,7 +8,6 @@
 </script>
 
 <script lang="ts">
-  import Footer from "./+components/Footer.svelte";
   import Header from "./+components/Header.svelte";
   import { setContext } from "svelte";
 
@@ -35,8 +34,6 @@
   <Header {previousPage} {title} />
 
   <slot />
-
-  <Footer />
 </div>
 
 <style lang="scss">

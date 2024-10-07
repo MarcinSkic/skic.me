@@ -303,4 +303,4 @@ When designing such a system it is useful to think with one SOLID programming ru
 
 In the time tracking context, I interpret it in the following way: entries should be open for adding more detail, without the need to edit existing entries to match the new standard. This is what you can hopefully achieve when using design system described in this article. However, at the very beginning don't dwell on everything I've written, experiment and see what works for you.
 
-If you have questions or wish to share your opinion, contact me. I would love to know your insights.
+If you have questions or wish to share your opinion, feel free to contact me. I would love to know your insights.

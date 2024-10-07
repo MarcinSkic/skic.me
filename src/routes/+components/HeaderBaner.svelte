@@ -23,7 +23,12 @@
 <div class="header-baner">
   <div class="header-baner__photo">
     {#if photoLoaded}
-      <img class="header-baner__photo__img" src={profile} alt="person" />
+      <img
+        class="header-baner__photo__img"
+        src={profile}
+        alt="person"
+        fetchpriority="high"
+      />
     {:else}
       <div class="header-baner__photo__placeholder">MS</div>
     {/if}
