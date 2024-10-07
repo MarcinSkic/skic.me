@@ -14,6 +14,7 @@ import { unified } from "unified";
 import reporter from "vfile-reporter";
 import dictionaryEn from "dictionary-en";
 import readingTime from "remark-reading-time";
+import rehypeExternalLinks from "rehype-external-links";
 
 const ignoredWords = [
   "Wakatime",
@@ -42,6 +43,9 @@ const mdsvexConfig = {
         .use(retextSpell, { dictionary: dictionaryEn, ignore: ignoredWords }),
     ],
     reportRetextWarnings,
+  ],
+  rehypePlugins: [
+    [rehypeExternalLinks, { rel: ["noopener"], target: "_blank" }],
   ],
 };
 
