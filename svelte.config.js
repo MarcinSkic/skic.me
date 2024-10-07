@@ -14,6 +14,14 @@ import { unified } from "unified";
 import reporter from "vfile-reporter";
 import dictionaryEn from "dictionary-en";
 
+const ignoredWords = [
+  "Wakatime",
+  "suboptimal",
+  "freeform",
+  "Clockify",
+  "autocomplete",
+];
+
 /** @type {import("mdsvex").MdsvexOptions} */
 const mdsvexConfig = {
   extensions: [".svx", ".md"],
@@ -28,7 +36,7 @@ const mdsvexConfig = {
         .use(retextPassive)
         .use(retextRepeatedWords)
         .use(retextSimplify)
-        .use(retextSpell, { dictionary: dictionaryEn }),
+        .use(retextSpell, { dictionary: dictionaryEn, ignore: ignoredWords }),
     ],
     reportRetextWarnings,
   ],
@@ -37,7 +45,7 @@ const mdsvexConfig = {
 function reportRetextWarnings() {
   return function (_, file) {
     if (!file.data.fm.published) {
-      console.warn(reporter(file));
+      console.warn(reporter(file, { verbose: true }));
     }
   };
 }
