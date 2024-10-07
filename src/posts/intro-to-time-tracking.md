@@ -1,12 +1,12 @@
 ---
 title: Intro to time tracking
 description: "Overview of how to use metadata like: category, project, tags, etc. to describe your activities in productive and convenient way"
-date: "2024-09-25"
+date: "2024-10-07"
 tags:
   - productivity
   - clockify
   - time tracking
-published: false
+published: true
 read_time: 7min
 ---
 
@@ -29,7 +29,7 @@ Okay, so, before discussing taxonomy let's set some ground rules:
 
 - **Decide on one language:** I made the mistake of using English everywhere except for some descriptions and it slowed down creation and search of entries by adding pointless questions, e.g., "Did I write titles for movies in English or my native language?". Stick to one, even if it sometimes feels weird, consistency pays off.
 
-- **Pick a color scheme:** An intuitive color system aids in interpreting charts by making you associate certain emotions with different colors. If you lack an idea where to start, my system uses a hue scale to assign meaning to entries: colder colors mean desired activities (work, programming, hobbies, etc.) while warmer mean suboptimal ones (gaming, browsing the internet, etc.). <br> <br> ![Example dashboard with my system](/src/posts/setting-up-time-tracking/colors.png)
+- **Pick a color scheme:** An intuitive color system aids in interpreting charts by making you associate certain emotions with different colors. If you lack an idea where to start, my system uses a hue scale to assign meaning to entries: colder colors mean desired activities (work, programming, hobbies, etc.) while warmer mean suboptimal ones (gaming, browsing the internet, etc.). <br> <br> ![Example dashboard with my system](/images/intro-to-time-tracking/colors.png)
 
 - **Start small:** at the beginning track only your most productive time: work, side projects, etc. For many people that will be all they need to see positive change that time tracking can bring to their lives. And if you decide to record more, the guidance from this post should make the transition easy.
 
@@ -37,7 +37,7 @@ Okay, so, before discussing taxonomy let's set some ground rules:
 
 Ground rules set, here I will go into the details of setting up a classification system. However, before that, I have to explain how I use my time tracker so you can better understand my design decisions. My goal is to write 2 to 4 letters into the `description` box and select one of the suggested entries. Fortunately, this search takes into account all fields: `project`, `category`, `description`, and even `tags`. Yet, there is a limit of available suggestions (for Clockify it's last 250 unique entries from the previous 60 days, which for me translates roughly to a week of data). After taking all of this into account, entries should repeat as much as possible but also be distinguishable from each other for a quick search.
 
-![Example of autocomplete](/src/posts/setting-up-time-tracking/autocomplete.png)
+![Example of autocomplete](/images/intro-to-time-tracking/autocomplete.png)
 
 ### Project
 
@@ -181,7 +181,7 @@ project: programming
 description: portfolio page
 ```
 
-I would suggest picking the second solution as you never know TODO: if in the future you wouldn't want to expand scope of your data by TODO: moving `description` to `project` and extending data in its place:
+I would suggest picking the second solution as in the future you may feel the need to move `description` to `project` and input more data in its place:
 
 ```yaml
 category: programming
@@ -217,13 +217,13 @@ description: pizza
 
 ### Tags
 
-These are in my opinion the most difficult to use, they allow for great granularity and can express almost any idea but quickly become annoying to add to your entries. Same as `description` they can be shared between activities from different `categories` and `projects` but have one unique feature: one entry can have multiple `tags` simultaneously. However this freedom makes them challenging to use, it's easy to forget or add them by accident with the application autocomplete. TODO: describe that autocomplete suggests entries the same as before
+These are in my opinion the most difficult to use, they allow for great granularity and can express almost any idea but quickly become annoying to add to your entries. Same as `description` they can be shared between activities from different `categories` and `projects` but have one unique feature: one entry can have multiple `tags` simultaneously. However this freedom makes them challenging to use, it's easy to forget or add them by accident. By accident? Yes, unfortunately Clockify's autocomplete ignores `tags` so different entries are merged as one:
 
-![How tags break autocomplete](/src/posts/setting-up-time-tracking/autocomplete-tags.png)
+![How tags break autocomplete](/images/intro-to-time-tracking/autocomplete-tags.png)
+
+Because of that using tags forces you to often correct autocomplete which is extremely annoying and is the reason why I almost don't use them.
 
 #### Example usage
-
-There are less examples as I can't justify using `tags` often, TODO: they are too cumbersome to use
 
 ```yaml
 category: entertainment
@@ -274,7 +274,7 @@ category: entartainment
 project: series
 ```
 
-TODO: new sentence here Reason being if one entry can't be a movie and a series at the same time and these tags are used only for this `project`.
+This reasoning applies if these tags are exclusive (they can't occur at the same entry) and only this `project` uses them.
 
 </li>
 
@@ -297,10 +297,10 @@ PS. If you are a developer and wish to have detailed and **automatic** tracking 
 
 ## Summary
 
-When designing such a system it is useful to think with one SOLID programming rule in mind, open/closed principle, that states:
+When designing such a system it is useful to think with one SOLID programming rule in mind, the open/closed principle, that states:
 
 > software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification
 
-In the context of time tracking, TODO: I understand it as entries should be open for adding more detail, without the need to edit existing entries to match the new standard.
+In the time tracking context, I interpret it in the following way: entries should be open for adding more detail, without the need to edit existing entries to match the new standard. This is what you can hopefully achieve when using design system described in this article. However, at the very beginning don't dwell on everything I've written, experiment and see what works for you.
 
-Obviously when beginning you will have to experiment and see what works for you, but hopefully, this article will help you to avoid some mistakes that I made TODO: which made my previous entries incompatible with current ones.
+If you have questions or wish to share your opinion, contact me. I would love to know your insights.
