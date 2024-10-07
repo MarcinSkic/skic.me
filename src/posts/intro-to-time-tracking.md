@@ -30,7 +30,7 @@ Okay, so, before discussing taxonomy let's set some ground rules:
 
 - **Pick a color scheme:** An intuitive color system aids in interpreting charts by making you associate certain emotions with different colors. If you lack an idea where to start, my system uses a hue scale to assign meaning to entries: colder colors mean desired activities (work, programming, hobbies, etc.) while warmer mean suboptimal ones (gaming, browsing the internet, etc.). <br> <br> ![Example dashboard with my system](/images/intro-to-time-tracking/colors.png)
 
-- **Start small:** at the beginning track only your most productive time: work, side projects, etc. For many people that will be all they need to see positive change that time tracking can bring to their lives. And if you decide to record more, system described in this article is designed in a way that supports such need.
+- **Start small:** at the beginning track only your most productive time: work, side projects, etc. For many people that will be all they need to see positive change that time tracking can bring to their lives. And if you decide to record more, the system described in this article is designed in a way that supports such needs.
 
 ## Taxonomy
 
