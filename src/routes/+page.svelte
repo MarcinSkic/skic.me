@@ -2,13 +2,7 @@
   import { projects } from "$lib/projects";
   import { experience } from "$lib/experience";
   import { onMount } from "svelte";
-  import {
-    Timeline,
-    FlowingGrid,
-    Project,
-    Footer,
-    Header,
-  } from "./+components";
+  import { Timeline, Masonry, Project, Footer, Header } from "./+components";
 
   const visibleHeightToActiveSection = 100;
   let sections: (HTMLElement | undefined)[] = [];
@@ -59,9 +53,9 @@
 <Header --font-size="4rem" {activeSectionId} />
 <main>
   <section id="projects" class="projects" bind:this={projectsSection}>
-    <FlowingGrid list={projects} gap={8} let:item>
+    <Masonry list={projects} gap={8} let:item>
       <Project project={item} imageSlideDelay={Math.random() * 3000 - 1500} />
-    </FlowingGrid>
+    </Masonry>
   </section>
   <section id="experience" class="experience" bind:this={experienceSection}>
     <Timeline experienceList={experience} />
