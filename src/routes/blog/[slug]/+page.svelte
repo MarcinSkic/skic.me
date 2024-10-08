@@ -3,7 +3,7 @@
   import { getContext } from "svelte";
   import type { BlogHeaderContext } from "../+layout.svelte";
   import dayjs from "dayjs";
-  import Footer from "./+components/Footer.svelte";
+  import { Footer } from "./+components";
 
   export let data;
 
