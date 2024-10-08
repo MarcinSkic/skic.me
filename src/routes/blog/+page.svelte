@@ -1,7 +1,6 @@
 <script lang="ts">
-  import Footer from "./+components/Footer.svelte";
-  import { getContext, onMount } from "svelte";
-  import Post from "./+components/Post.svelte";
+  import { Footer, Post } from "./+components";
+  import { getContext } from "svelte";
   import type { BlogHeaderContext } from "./+layout.svelte";
 
   export let data;
