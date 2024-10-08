@@ -3,3 +3,7 @@ export { default as FlowingGrid } from "./flowingGrid/FlowingGrid.svelte";
 export { default as Project } from "./project/Project.svelte";
 export { default as Footer } from "./Footer.svelte";
 export { default as Header } from "./Header.svelte";
+export { default as HeaderBaner } from "./HeaderBaner.svelte";
+export { default as Slider } from "./sliders/Slider.svelte";
+export { default as TextSlider } from "./sliders/TextSlider.svelte";
+export { default as ImageSlider } from "./sliders/ImageSlider.svelte";

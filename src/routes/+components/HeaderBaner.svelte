@@ -1,5 +1,5 @@
 <script>
-  import TextSlider from "./sliders/TextSlider.svelte";
+  import { TextSlider } from ".";
   import profile from "$lib/images/profile.jpeg";
   import { onMount } from "svelte";
 

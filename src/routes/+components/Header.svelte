@@ -1,5 +1,5 @@
 <script lang="ts">
-  import HeaderBaner from "./HeaderBaner.svelte";
+  import { HeaderBaner } from ".";
   export let activeSectionId: string | undefined;
 
   const links = [
