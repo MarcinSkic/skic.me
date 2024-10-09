@@ -88,6 +88,10 @@
       font-size: calc(var(--font-size) / 1.6);
       list-style: none;
 
+      @media (max-width: 840px) {
+        bottom: 0;
+      }
+
       &__link {
         color: var(--color-text-dark);
         background-image: linear-gradient(var(--color-text-dark) 0 0);
