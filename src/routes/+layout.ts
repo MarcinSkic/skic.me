@@ -8,6 +8,8 @@ export const load = async () => {
     posthog.init("phc_iyI1iWEuZOLBnyJ26H7GDUGBWS6Fa1nkrArdPAkfQyr", {
       api_host: "https://eu.i.posthog.com",
       person_profiles: "never",
+      capture_pageview: false,
+      capture_pageleave: false,
     });
   }
   return;
