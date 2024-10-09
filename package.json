@@ -48,6 +48,7 @@
   "type": "module",
   "dependencies": {
     "dayjs": "^1.11.10",
-    "iconify-icon": "^2.0.0"
+    "iconify-icon": "^2.0.0",
+    "posthog-js": "^1.167.0"
   }
 }
