@@ -65,9 +65,13 @@
 
 <style lang="scss">
   .post {
+    box-sizing: border-box;
     justify-self: center;
+    width: 100%;
     max-width: 700px;
-    margin: 0 1.5rem 2rem;
+    padding: 0 1.5rem;
+    margin: 0 0 2rem;
+    overflow: hidden;
   }
 
   .header {
@@ -87,13 +91,13 @@
     &__tags {
       display: flex;
       flex-wrap: wrap;
+      gap: 0.5rem;
       align-items: center;
       padding: 0;
       list-style: none;
 
       &__tag {
         padding: 0.25rem 0.5rem;
-        margin-right: 0.5rem;
         font-size: 1rem;
         line-height: 1.5rem;
         background-color: var(--color-theme-2);

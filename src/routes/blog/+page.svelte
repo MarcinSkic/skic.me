@@ -36,7 +36,7 @@
     align-content: start;
     justify-content: center;
     padding: 0;
-    margin-top: 2rem;
+    margin: 2rem 0.5rem 0;
     list-style: none;
   }
 </style>

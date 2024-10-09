@@ -22,7 +22,14 @@
     display: flex;
     gap: 1rem;
     place-self: center;
+    align-items: center;
     margin-bottom: 1rem;
+
+    @media screen and (max-width: 630px) {
+      gap: 0.5rem;
+      font-size: 0.8rem;
+    }
+
     &__link {
       font-weight: 600;
       color: white;
