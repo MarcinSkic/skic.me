@@ -27,7 +27,7 @@
 
     @media screen and (max-width: 630px) {
       gap: 0.5rem;
-      font-size: 0.78rem;
+      font-size: 0.75rem;
     }
 
     &__link {
