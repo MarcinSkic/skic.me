@@ -19,6 +19,17 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-image: radial-gradient(
+        50% 50% at 50% 50%,
+        rgb(255 255 255 / 75%) 0%,
+        rgb(255 255 255 / 0%) 100%
+      ),
+      linear-gradient(
+        180deg,
+        var(--color-bg-0) 0%,
+        var(--color-bg-1) 15%,
+        var(--color-bg-2) 50%
+      );
 
     @media (max-width: 1060px) {
       --nav-height: 5rem;

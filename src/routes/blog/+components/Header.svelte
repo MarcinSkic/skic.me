@@ -25,7 +25,7 @@
 <style lang="scss">
   .header {
     display: grid;
-    grid-template-columns: 155px 1fr 150px;
+    grid-template-columns: 155px 1fr 140px;
     align-items: center;
     justify-self: center;
     width: 100%;
