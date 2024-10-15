@@ -2,6 +2,20 @@
 
 <div align="right">
 
+## v1.2.1 (2024-10-15)
+
+</div>
+
+## Bugfixes
+
+- Improved quality of writing in "Intro to time tracking" post
+- Changed images aspect to be more readable on mobile
+- Increased and changed font to improve readability
+- Made blog header scale correctly on mobile
+- Made background behind Mobile Navigation Buttons dark to match the page design
+
+<div align="right">
+
 ## v1.2.0 (2024-10-09)
 
 </div>
