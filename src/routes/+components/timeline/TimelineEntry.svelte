@@ -7,9 +7,10 @@
 
 <div class="timeline-entry">
   <div class="timeline-entry__date">
-    {dayjs(experience.began_at).format("MMM YYYY")} - {dayjs(
-      experience.finished_at
-    ).format("MMM YYYY")}
+    {dayjs(experience.began_at).format("MMM YYYY")} - {experience.finished_at !==
+    undefined
+      ? dayjs(experience.finished_at).format("MMM YYYY")
+      : "Now"}
   </div>
   <div class="timeline-entry__dot"></div>
   <div class="timeline-entry__line"></div>
