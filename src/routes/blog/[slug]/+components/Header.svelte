@@ -1,7 +1,7 @@
 <script lang="ts">
   import dayjs from "dayjs";
 
-  export let postMeta;
+  let { postMeta } = $props();
 
   const prettyDate = dayjs(postMeta.date).format("MMM D, YYYY");
 </script>

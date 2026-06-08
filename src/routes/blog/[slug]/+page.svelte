@@ -5,7 +5,7 @@
 
   import { Footer, Header, CtaGithub } from "./+components";
 
-  export let data;
+  let { data } = $props();
 
   getContext<BlogHeaderContext>("blog-header").setHeader(
     { text: "Other posts", href: "/blog" },
@@ -26,7 +26,7 @@
   <Header postMeta={data.meta} />
 
   <section class="prose">
-    <svelte:component this={data.content} />
+    <data.content />
   </section>
 
   <CtaGithub postSlug={data.meta.slug} />

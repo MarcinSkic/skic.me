@@ -3,7 +3,7 @@
   import { getContext } from "svelte";
   import type { BlogHeaderContext } from "./+layout.svelte";
 
-  export let data;
+  let { data } = $props();
 
   getContext<BlogHeaderContext>("blog-header").setHeader(
     { text: "Home", href: "/" },

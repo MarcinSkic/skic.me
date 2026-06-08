@@ -5,11 +5,11 @@
   import { Timeline, Masonry, Project, Footer, Header } from "./+components";
 
   const visibleHeightToActiveSection = 100;
-  let sections: (HTMLElement | undefined)[] = [];
-  let activeSectionId: string | undefined;
-  let windowInnerHeight: number;
-  let projectsSection: HTMLElement;
-  let experienceSection: HTMLElement;
+  let sections: (HTMLElement | undefined)[] = $state([]);
+  let activeSectionId: string | undefined = $state();
+  let windowInnerHeight = $state(0);
+  let projectsSection = $state<HTMLElement | undefined>(undefined);
+  let experienceSection = $state<HTMLElement | undefined>(undefined);
   onMount(() => {
     sections = [experienceSection, projectsSection];
     activeSectionId = getActiveSection(sections)?.id;
@@ -43,7 +43,7 @@
 </svelte:head>
 <svelte:window
   bind:innerHeight={windowInnerHeight}
-  on:scroll={() => {
+  onscroll={() => {
     activeSectionId = getActiveSection(sections)?.id;
   }}
 />
@@ -51,9 +51,11 @@
 <Header --font-size="4rem" {activeSectionId} />
 <main>
   <section id="projects" class="projects" bind:this={projectsSection}>
-    <Masonry list={projects} gap={8} let:item>
-      <Project project={item} imageSlideDelay={Math.random() * 3000 - 1500} />
-    </Masonry>
+    <Masonry list={projects} gap={8} >
+      {#snippet children({ item })}
+            <Project project={item} imageSlideDelay={Math.random() * 3000 - 1500} />
+                {/snippet}
+        </Masonry>
   </section>
   <section id="experience" class="experience" bind:this={experienceSection}>
     <Timeline experienceList={experience} />

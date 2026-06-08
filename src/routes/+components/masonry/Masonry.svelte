@@ -1,23 +1,39 @@
 <script lang="ts" generics="T">
+    import { run } from 'svelte/legacy';
+
     import {
         arrayIntoMatrixOrderedByColumn,
         type MatrixElement,
         type MatrixElementIndexed,
     } from "./math";
 
-    export let list: MatrixElement<T>[];
-    export let minCols = 1;
-    export let maxCols = 3;
-    /** Value in px */
-    export let minColumnWidth = 500;
-    /** Value in px */
-    export let gap = 40;
+    
+    
+    interface Props {
+        list: MatrixElement<T>[];
+        minCols?: number;
+        maxCols?: number;
+        /** Value in px */
+        minColumnWidth?: number;
+        /** Value in px */
+        gap?: number;
+        children?: import('svelte').Snippet<[any]>;
+    }
 
-    let gridWidth = 0;
-    let columnCount = 0;
-    let matrix: MatrixElementIndexed<T>[][] = [];
+    let {
+        list,
+        minCols = 1,
+        maxCols = 3,
+        minColumnWidth = 500,
+        gap = 40,
+        children
+    }: Props = $props();
 
-    $: {
+    let gridWidth = $state(0);
+    let columnCount = $state(0);
+    let matrix: MatrixElementIndexed<T>[][] = $state([]);
+
+    run(() => {
         const minColumnWithGapWidth = minColumnWidth + gap;
         let columnWithGapCount = Math.floor(gridWidth / minColumnWithGapWidth);
         let leftSpace = gridWidth - columnWithGapCount * minColumnWithGapWidth;
@@ -33,7 +49,7 @@
         );
 
         matrix = arrayIntoMatrixOrderedByColumn(list, columnCount);
-    }
+    });
 </script>
 
 <div
@@ -45,7 +61,7 @@
     {#each matrix as column}
         <div class="grid__column">
             {#each column as element}
-                <slot item={element.item} index={element.index} />
+                {@render children?.({ item: element.item, index: element.index, })}
             {/each}
         </div>
     {/each}

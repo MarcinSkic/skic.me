@@ -1,9 +1,13 @@
 <script lang="ts">
-  export let previousPage = {
+  interface Props {
+    previousPage?: any;
+    title?: string;
+  }
+
+  let { previousPage = {
     text: "Home",
     href: "/",
-  };
-  export let title = "Blog";
+  }, title = "Blog" }: Props = $props();
 </script>
 
 <header class="header">

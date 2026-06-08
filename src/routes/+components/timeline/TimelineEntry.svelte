@@ -2,7 +2,11 @@
   import type { Experience } from "$lib/experience";
   import dayjs from "dayjs";
 
-  export let experience: Experience;
+  interface Props {
+    experience: Experience;
+  }
+
+  let { experience }: Props = $props();
 </script>
 
 <div class="timeline-entry">

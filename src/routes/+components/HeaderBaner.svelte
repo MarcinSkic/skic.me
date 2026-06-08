@@ -3,7 +3,7 @@
   import profile from "$lib/images/profile.jpeg";
   import { onMount } from "svelte";
 
-  let photoLoaded = false;
+  let photoLoaded = $state(false);
 
   const descriptions = [
     "Web Developer",

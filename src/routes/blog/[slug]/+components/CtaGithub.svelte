@@ -1,5 +1,9 @@
 <script lang="ts">
-  export let postSlug: string;
+  interface Props {
+    postSlug: string;
+  }
+
+  let { postSlug }: Props = $props();
 </script>
 
 <section class="cta-github">

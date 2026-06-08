@@ -2,7 +2,11 @@
     import type { Experience } from "$lib/experience";
     import TimelineEntry from "./TimelineEntry.svelte";
 
-    export let experienceList: Experience[];
+    interface Props {
+        experienceList: Experience[];
+    }
+
+    let { experienceList }: Props = $props();
 </script>
 
 <div class="timeline">
