@@ -10,10 +10,8 @@
   let windowInnerHeight: number;
   let projectsSection: HTMLElement;
   let experienceSection: HTMLElement;
-  let contactSection: HTMLElement;
-
   onMount(() => {
-    sections = [contactSection, experienceSection, projectsSection];
+    sections = [experienceSection, projectsSection];
     activeSectionId = getActiveSection(sections)?.id;
   });
 
