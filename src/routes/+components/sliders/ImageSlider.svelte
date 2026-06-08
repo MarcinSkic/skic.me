@@ -1,28 +1,34 @@
 <script lang="ts">
   import { Slider } from "../.";
 
-  export let duration: number = 5000;
-  export let delay: number = 0;
-  export let images: { alt: string; src: string }[];
-  let slider: any;
-  let visible = false;
+  interface Props {
+    duration?: number;
+    delay?: number;
+    images: { alt: string; src: string }[];
+  }
+
+  let { duration = 5000, delay = 0, images }: Props = $props();
+  let slider: any = $state();
+  let visible = $state(false);
 </script>
 
 <div
   class="image-slider"
-  on:pointerenter={() => {
+  role="presentation"
+  onpointerenter={() => {
     visible = true;
   }}
-  on:pointerleave={() => {
+  onpointerleave={() => {
     visible = false;
   }}
 >
   <button
     class="image-slider__arrow image-slider__arrow--prev"
     class:image-slider__arrow--visible={visible}
-    on:click={() => slider.decreaseCounter()}
+    aria-label="Previous image"
+    onclick={() => slider.decreaseCounter()}
   >
-    <iconify-icon icon="mdi:menu-left" />
+    <iconify-icon icon="mdi:menu-left"></iconify-icon>
   </button>
   <Slider
     bind:this={slider}
@@ -31,28 +37,33 @@
     {delay}
     arrayIndexDirection="increment"
   >
-    <div class="image-slider__img-wrapper" slot="hidden" let:hiddenIndex>
-      <img
-        draggable="false"
-        src={images[hiddenIndex].src}
-        alt={images[hiddenIndex].alt}
-      />
-    </div>
+    {#snippet hidden({ hiddenIndex })}
+        <div class="image-slider__img-wrapper"  >
+        <img
+          draggable="false"
+          src={images[hiddenIndex].src}
+          alt={images[hiddenIndex].alt}
+        />
+      </div>
+      {/snippet}
 
-    <div class="image-slider__img-wrapper" slot="current" let:currentIndex>
-      <img
-        draggable="false"
-        src={images[currentIndex]?.src}
-        alt={images[currentIndex]?.alt}
-      />
-    </div>
+    {#snippet current({ currentIndex })}
+        <div class="image-slider__img-wrapper"  >
+        <img
+          draggable="false"
+          src={images[currentIndex]?.src}
+          alt={images[currentIndex]?.alt}
+        />
+      </div>
+      {/snippet}
   </Slider>
   <button
     class="image-slider__arrow image-slider__arrow--next"
     class:image-slider__arrow--visible={visible}
-    on:click={() => slider.increaseCounter()}
+    aria-label="Next image"
+    onclick={() => slider.increaseCounter()}
   >
-    <iconify-icon icon="mdi:menu-right" />
+    <iconify-icon icon="mdi:menu-right"></iconify-icon>
   </button>
 </div>
 

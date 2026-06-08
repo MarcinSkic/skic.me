@@ -5,7 +5,7 @@ export interface ControlledInterval {
 }
 
 export function getControlledInterval(callback: () => void, duration: number) {
-    let interval: number | undefined;
+    let interval: ReturnType<typeof setInterval> | undefined;
 
     function start() {
         if (interval) return;

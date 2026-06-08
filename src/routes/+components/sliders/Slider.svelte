@@ -1,15 +1,32 @@
 <script lang="ts">
+  import { run } from 'svelte/legacy';
+
   import { getControlledInterval, type ControlledInterval } from "$lib/time";
   import { spring } from "svelte/motion";
 
-  export let interactable = true;
-  export let itemsCount: number;
-  /**
+  
+  interface Props {
+    interactable?: boolean;
+    itemsCount: number;
+    /**
    * Duration between slides in milliseconds
    */
-  export let delay: number = 0;
-  export let duration: number;
-  export let arrayIndexDirection: "increment" | "decrement";
+    delay?: number;
+    duration: number;
+    arrayIndexDirection: "increment" | "decrement";
+    hidden?: import('svelte').Snippet<[any]>;
+    current?: import('svelte').Snippet<[any]>;
+  }
+
+  let {
+    interactable = true,
+    itemsCount,
+    delay = 0,
+    duration,
+    arrayIndexDirection,
+    hidden,
+    current
+  }: Props = $props();
 
   export function increaseCounter() {
     counter++;
@@ -75,22 +92,24 @@
 
   //swiping
   let isSwiping = false;
-  let isPressed = false;
+  let isPressed = $state(false);
   let swipeStartX: number = 0;
   let swipeStartY: number = 0;
   let swipeEndX: number = 0;
   let swipeEndY: number = 0;
-  let clientWidth: number = 0;
+  let clientWidth: number = $state(0);
 
-  let counter = 0;
-  let visibilityState: "visible" | "hidden";
+  let counter = $state(0);
+  let visibilityState: "visible" | "hidden" | undefined = $state();
   let lastSlide = Date.now();
   let interval: ControlledInterval;
 
-  $: indexCounter.set(counter);
-  $: currentIndex = universalModulo(Math.floor($indexCounter), itemsCount);
-  $: hiddenIndex = universalModulo(Math.floor($indexCounter + 1), itemsCount);
-  $: offset = `${universalModulo($indexCounter, 1) * 100 * -1}%`;
+  run(() => {
+    indexCounter.set(counter);
+  });
+  let currentIndex = $derived(universalModulo(Math.floor($indexCounter), itemsCount));
+  let hiddenIndex = $derived(universalModulo(Math.floor($indexCounter + 1), itemsCount));
+  let offset = $derived(`${universalModulo($indexCounter, 1) * 100 * -1}%`);
 
   //$: console.log(offset);
 
@@ -110,33 +129,34 @@
 <svelte:document bind:visibilityState />
 <div
   class="slider"
+  role="presentation"
   bind:clientWidth
   draggable="false"
-  on:touchstart={(event) => {
+  ontouchstart={(event) => {
     swipeStart(event.touches[0].clientX, event.touches[0].clientY);
   }}
-  on:touchmove={(event) => {
+  ontouchmove={(event) => {
     swipeChange(event.touches[0].clientX, event.touches[0].clientY);
   }}
-  on:touchend={() => {
+  ontouchend={() => {
     swipeEnd();
   }}
-  on:pointerdown={(event) => {
+  onpointerdown={(event) => {
     isPressed = true;
     swipeStart(event.clientX, event.clientY);
   }}
-  on:pointermove={(event) => {
+  onpointermove={(event) => {
     if (event.pressure !== 0 && isPressed) {
       swipeChange(event.clientX, event.clientY);
     }
   }}
-  on:pointerleave={() => {
+  onpointerleave={() => {
     if (isPressed) {
       isPressed = false;
       swipeEnd();
     }
   }}
-  on:pointerup={() => {
+  onpointerup={() => {
     if (isPressed) {
       isPressed = false;
       swipeEnd();
@@ -145,10 +165,10 @@
 >
   <div class="slider__content" style:--offset={offset}>
     <div aria-hidden="true" class="slider__content__hidden">
-      <slot name="hidden" {hiddenIndex}>{hiddenIndex}</slot>
+      {#if hidden}{@render hidden({ hiddenIndex, })}{:else}{hiddenIndex}{/if}
     </div>
     <div class="slider__content__visible">
-      <slot name="current" {currentIndex}>{currentIndex}</slot>
+      {#if current}{@render current({ currentIndex, })}{:else}{currentIndex}{/if}
     </div>
   </div>
 </div>

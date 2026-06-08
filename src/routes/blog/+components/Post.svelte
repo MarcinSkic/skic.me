@@ -1,7 +1,11 @@
 <script lang="ts">
   import type { Post } from "../+page.server";
 
-  export let post: Post;
+  interface Props {
+    post: Post;
+  }
+
+  let { post }: Props = $props();
 </script>
 
 <li>

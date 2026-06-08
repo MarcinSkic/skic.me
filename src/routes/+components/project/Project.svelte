@@ -1,3 +1,4 @@
+<!-- @migration-task Error while migrating Svelte code: Can't migrate code with afterUpdate. Please migrate by hand. -->
 <script context="module" lang="ts">
   let toShow = 0;
 </script>
@@ -73,11 +74,11 @@
     <h3 class="project__title">{project.name}</h3>
     <div class="project__icons">
       {#if project.urls.yt}
-        <a href={project.urls.yt} target="_blank" rel="noopener">
+        <a href={project.urls.yt} target="_blank" rel="noopener" aria-label="Watch on YouTube">
           <iconify-icon
             icon="mdi:youtube"
             class="project__icons__icon project__icons__icon--yt"
-          />
+          ></iconify-icon>
         </a>
       {/if}
       {#if project.urls.github}
@@ -91,8 +92,8 @@
         </a>
       {/if}
       {#if project.urls.site}
-        <a href={project.urls.site} target="_blank" rel="author noopener">
-          <iconify-icon icon="mdi:open-in-new" class="project__icons__icon" />
+        <a href={project.urls.site} target="_blank" rel="author noopener" aria-label="Visit website">
+          <iconify-icon icon="mdi:open-in-new" class="project__icons__icon"></iconify-icon>
         </a>
       {/if}
     </div>

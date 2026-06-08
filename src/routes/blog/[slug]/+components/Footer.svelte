@@ -1,8 +1,8 @@
 <footer class="footer">
   <span class="footer__attribution">
     Written by Marcin Skic
-    <a href="https://github.com/MarcinSkic" target="github" rel="noopener">
-      <iconify-icon icon="cib:github" class="footer__github" />
+    <a href="https://github.com/MarcinSkic" target="github" rel="noopener" aria-label="GitHub profile">
+      <iconify-icon icon="cib:github" class="footer__github"></iconify-icon>
     </a></span
   >
 </footer>

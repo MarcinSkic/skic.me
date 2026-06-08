@@ -1,5 +1,9 @@
 <script lang="ts">
-  export let postSlug: string;
+  interface Props {
+    postSlug: string;
+  }
+
+  let { postSlug }: Props = $props();
 </script>
 
 <section class="cta-github">
@@ -13,8 +17,8 @@
       target="github_edit"
       rel="noopener"
     >
-      <span>edit it on Github</span><iconify-icon icon="mdi:open-in-new" /></a
-    >
+      <span>edit it on Github</span><iconify-icon icon="mdi:open-in-new"></iconify-icon>
+    </a>
   </p>
 </section>
 

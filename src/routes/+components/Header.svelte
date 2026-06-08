@@ -1,6 +1,10 @@
 <script lang="ts">
   import { HeaderBaner } from ".";
-  export let activeSectionId: string | undefined;
+  interface Props {
+    activeSectionId: string | undefined;
+  }
+
+  let { activeSectionId }: Props = $props();
 
   const links = [
     {

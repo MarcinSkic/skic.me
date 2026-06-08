@@ -1,4 +1,4 @@
-<script context="module" lang="ts">
+<script module lang="ts">
   export interface BlogHeaderContext {
     setHeader: (
       previousPage: { text: string; href: string },
@@ -10,6 +10,11 @@
 <script lang="ts">
   import { Header } from "./+components";
   import { setContext } from "svelte";
+  interface Props {
+    children?: import('svelte').Snippet;
+  }
+
+  let { children }: Props = $props();
 
   function setHeader(
     _previousPage: { text: string; href: string },
@@ -23,17 +28,17 @@
     setHeader,
   });
 
-  let previousPage = {
+  let previousPage = $state({
     text: "Home",
     href: "/",
-  };
-  let title = "";
+  });
+  let title = $state("");
 </script>
 
 <div class="blog">
   <Header {previousPage} {title} />
 
-  <slot />
+  {@render children?.()}
 </div>
 
 <style lang="scss">
