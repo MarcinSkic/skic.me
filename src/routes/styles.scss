@@ -110,7 +110,7 @@ button:focus:not(:focus-visible) {
   padding: 0;
   margin: 0;
   overflow: hidden;
-  clip: rect(0 0 0 0);
   white-space: nowrap;
   border: 0;
+  clip: rect(0 0 0 0);
 }
