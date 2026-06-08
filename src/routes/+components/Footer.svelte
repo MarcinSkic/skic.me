@@ -1,7 +1,7 @@
 <div class="footer">
     <span class="footer__text">Marcin Skic</span>
-    <a href="https://github.com/MarcinSkic/portfolio-website">
-        <iconify-icon icon="simple-icons:github" style="font-size: 1.2rem;" />
+    <a href="https://github.com/MarcinSkic/portfolio-website" aria-label="View source on GitHub">
+        <iconify-icon icon="simple-icons:github" style="font-size: 1.2rem;"></iconify-icon>
     </a>
 </div>
 

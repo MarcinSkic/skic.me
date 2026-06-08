@@ -10,6 +10,7 @@
 
 <div
   class="image-slider"
+  role="presentation"
   on:pointerenter={() => {
     visible = true;
   }}
@@ -20,9 +21,10 @@
   <button
     class="image-slider__arrow image-slider__arrow--prev"
     class:image-slider__arrow--visible={visible}
+    aria-label="Previous image"
     on:click={() => slider.decreaseCounter()}
   >
-    <iconify-icon icon="mdi:menu-left" />
+    <iconify-icon icon="mdi:menu-left"></iconify-icon>
   </button>
   <Slider
     bind:this={slider}
@@ -50,9 +52,10 @@
   <button
     class="image-slider__arrow image-slider__arrow--next"
     class:image-slider__arrow--visible={visible}
+    aria-label="Next image"
     on:click={() => slider.increaseCounter()}
   >
-    <iconify-icon icon="mdi:menu-right" />
+    <iconify-icon icon="mdi:menu-right"></iconify-icon>
   </button>
 </div>
 

@@ -11,7 +11,7 @@
     <ul class="links">
       <li>
         <a class="links__link" href={previousPage.href}>
-          <iconify-icon icon="mdi:chevron-left" class="links__link__icon" />
+          <iconify-icon icon="mdi:chevron-left" class="links__link__icon"></iconify-icon>
           <span>{previousPage.text}</span>
         </a>
       </li>

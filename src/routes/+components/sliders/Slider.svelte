@@ -110,6 +110,7 @@
 <svelte:document bind:visibilityState />
 <div
   class="slider"
+  role="presentation"
   bind:clientWidth
   draggable="false"
   on:touchstart={(event) => {

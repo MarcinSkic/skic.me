@@ -13,8 +13,8 @@
       target="github_edit"
       rel="noopener"
     >
-      <span>edit it on Github</span><iconify-icon icon="mdi:open-in-new" /></a
-    >
+      <span>edit it on Github</span><iconify-icon icon="mdi:open-in-new"></iconify-icon>
+    </a>
   </p>
 </section>
 

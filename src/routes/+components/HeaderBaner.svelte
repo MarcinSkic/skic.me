@@ -45,18 +45,19 @@
       />
     </div>
     <div id="contact" class="contact">
-      <a href="https://github.com/MarcinSkic" target="github" rel="noopener">
-        <iconify-icon icon="cib:github" class="contact__icon" />
+      <a href="https://github.com/MarcinSkic" target="github" rel="noopener" aria-label="GitHub profile">
+        <iconify-icon icon="cib:github" class="contact__icon"></iconify-icon>
       </a>
       <a
         href="https://www.linkedin.com/in/marcin-skic-569bb0272/"
         target="linkedin"
         rel="noopener"
+        aria-label="LinkedIn profile"
       >
-        <iconify-icon icon="devicon-plain:linkedin" class="contact__icon" />
+        <iconify-icon icon="devicon-plain:linkedin" class="contact__icon"></iconify-icon>
       </a>
-      <a href="mailto:marcin@skic.me">
-        <iconify-icon icon="mdi:email" class="contact__icon" />
+      <a href="mailto:marcin@skic.me" aria-label="Send email">
+        <iconify-icon icon="mdi:email" class="contact__icon"></iconify-icon>
       </a>
     </div>
   </h1>
